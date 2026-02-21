@@ -36,7 +36,7 @@ export default function StudniePage() {
                                 <CheckList items={[
                                     "Rozpoznanie hydrogeologiczne",
                                     "Opracowanie projektu robót geologicznych",
-                                    "Wiercenie na sprężone powietrze lub udarowo-okrętnie",
+                                    "Wiercenie na sprężone powietrze, udarowo-okrętnie lub na płuczkę wiertniczą",
                                     "Opracowanie dokumentacji hydrogeologicznej",
                                     "Opracowanie operatu wodnoprawnego",
                                     "Uzbrojenie i obudowa studni",
@@ -46,6 +46,14 @@ export default function StudniePage() {
                             </div>
                             <div>
                                 <ImgPlaceholder label="Wiercenie na sprężone powietrze" height={400} style={{ borderRadius: 16, marginBottom: 24 }} />
+                                <div style={{ background: "linear-gradient(135deg, rgba(26,111,181,0.08), rgba(0,180,216,0.08))", borderRadius: 16, padding: 28, marginBottom: 24, border: "1px solid rgba(26,111,181,0.12)" }}>
+                                    <h4 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 16, color: COLORS.navy, marginBottom: 8 }}>
+                                        Wiercenie w zagospodarowanym ogrodzie?
+                                    </h4>
+                                    <p style={{ color: COLORS.gray, lineHeight: 1.7, fontSize: 14 }}>
+                                        Posiadamy również niewielkie urządzenia wiertnicze, które poradzą sobie nawet w zagospodarowanym ogrodzie — bez konieczności niszczenia terenu.
+                                    </p>
+                                </div>
                                 <div style={{ background: COLORS.offWhite, borderRadius: 16, padding: 28 }}>
                                     <h4 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 18, color: COLORS.navy, marginBottom: 12 }}>
                                         Wykonujemy studnie dla:
@@ -131,6 +139,7 @@ export default function StudniePage() {
                                 <FeatureItem icon={Icons.camera} title="Inspekcja TV" description="Kamerowanie to podstawowa forma oceny stanu technicznego studni — jej konstrukcji, zarurowania i zatopionych elementów." />
                                 <FeatureItem icon={Icons.wrench} title="Renowacja" description="Metody mechaniczne (szczotkowanie, tłokowanie, airlift) oraz chemiczne — usuwanie osadów żelazistych, manganowych i węglanowych." />
                                 <FeatureItem icon={Icons.layers} title="Likwidacja" description="Profesjonalna likwidacja studni, które nie nadają się już do renowacji. Pełna dokumentacja." />
+                                <FeatureItem icon={Icons.shield} title="Prace ratunkowe" description="Usunięcie ze studni zerwanej pompy głębinowej oraz innych zatopionych w otworze elementów (rurociąg, lina stalowa)." />
                             </div>
                             <div>
                                 <ImgPlaceholder label="Inspekcja TV studni" height={300} style={{ borderRadius: 16, marginBottom: 16 }} />
