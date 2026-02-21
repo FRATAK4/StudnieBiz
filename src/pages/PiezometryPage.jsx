@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -8,6 +9,15 @@ import { PageHero } from "../components/PageHero.jsx";
 export default function PiezometryPage() {
     return (
         <div>
+            <Helmet>
+                <title>Piezometry obserwacyjne — monitoring wód podziemnych | studnie.biz</title>
+                <meta name="description" content="Piezometry obserwacyjne do monitoringu wód podziemnych. Pomiar poziomu zwierciadła wody, pobieranie próbek, kontrola odwodnienia i zasięgu leja depresji." />
+                <meta property="og:title" content="Piezometry obserwacyjne — monitoring wód podziemnych | studnie.biz" />
+                <meta property="og:description" content="Piezometry obserwacyjne do monitoringu wód podziemnych. Pomiar poziomu zwierciadła wody i analiza zanieczyszczeń." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/piezometry" />
+                <link rel="canonical" href="https://studnie.biz/piezometry" />
+            </Helmet>
             <PageHero title="Piezometry obserwacyjne" subtitle="Otwory hydrogeologiczne badawcze służące do monitoringu wód podziemnych — pomiar poziomu zwierciadła wody i analiza zanieczyszczeń." icon={Icons.gauge} />
 
             <section style={{ padding: "80px 24px", background: "white" }}>

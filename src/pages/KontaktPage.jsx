@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { COLORS, inputStyle } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -9,6 +10,15 @@ export default function KontaktPage() {
 
     return (
         <div>
+            <Helmet>
+                <title>Kontakt — Zakład Usług Studziennych Kielce | studnie.biz</title>
+                <meta name="description" content="Skontaktuj się z nami — darmowe rozpoznanie warunków i wizja lokalna. Tel. 602 333 745. Zakład Usług Studziennych, ul. Spacerowa 5, 25-026 Kielce." />
+                <meta property="og:title" content="Kontakt — Zakład Usług Studziennych Kielce | studnie.biz" />
+                <meta property="og:description" content="Skontaktuj się z nami — darmowe rozpoznanie warunków i wizja lokalna. Tel. 602 333 745, ul. Spacerowa 5, 25-026 Kielce." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/kontakt" />
+                <link rel="canonical" href="https://studnie.biz/kontakt" />
+            </Helmet>
             <PageHero title="Kontakt" subtitle="Skontaktuj się z nami — darmowe rozpoznanie warunków i wizja lokalna. Dział techniczny zawsze do Twojej dyspozycji." icon={Icons.phone} />
 
             <section style={{ padding: "80px 24px", background: "white" }}>

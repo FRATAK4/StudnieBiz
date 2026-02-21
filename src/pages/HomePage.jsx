@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -17,6 +18,15 @@ export default function HomePage() {
 
     return (
         <div>
+            <Helmet>
+                <title>Studnie głębinowe i pompy ciepła — wiercenie od 1968 | studnie.biz</title>
+                <meta name="description" content="Zakład Usług Studziennych — wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Jedyna firma w Polsce z certyfikatem DVGW BAU. Ponad 35 000 odwiertów." />
+                <meta property="og:title" content="Studnie głębinowe i pompy ciepła — wiercenie od 1968 | studnie.biz" />
+                <meta property="og:description" content="Wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Ponad 35 000 odwiertów od 1968 roku. Certyfikat DVGW BAU." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/" />
+                <link rel="canonical" href="https://studnie.biz/" />
+            </Helmet>
             {/* Hero */}
             <section style={{
                 minHeight: "100vh",

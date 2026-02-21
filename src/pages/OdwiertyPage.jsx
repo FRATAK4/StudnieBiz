@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -8,6 +9,15 @@ import { PageHero } from "../components/PageHero.jsx";
 export default function OdwiertyPage() {
     return (
         <div>
+            <Helmet>
+                <title>Odwierty poszukiwawcze — minimalizacja ryzyka | studnie.biz</title>
+                <meta name="description" content="Małośrednicowe odwierty poszukiwawcze — określenie wydajności ujęcia i składu wody przed budową studni. Minimalizacja ryzyka suchego odwiertu." />
+                <meta property="og:title" content="Odwierty poszukiwawcze — minimalizacja ryzyka | studnie.biz" />
+                <meta property="og:description" content="Małośrednicowe odwierty poszukiwawcze — określenie wydajności ujęcia i składu wody przed budową studni." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/odwierty" />
+                <link rel="canonical" href="https://studnie.biz/odwierty" />
+            </Helmet>
             <PageHero title="Odwierty poszukiwawcze" subtitle="Małośrednicowe otwory poszukiwawcze pozwalające określić wydajność ujęcia i skład fizykochemiczny wody — minimalizacja ryzyka." icon={Icons.search} />
 
             <section style={{ padding: "80px 24px", background: "white" }}>

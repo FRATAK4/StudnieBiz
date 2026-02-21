@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -9,6 +10,15 @@ import { PageHero } from "../components/PageHero.jsx";
 export default function StudniePage() {
     return (
         <div>
+            <Helmet>
+                <title>Studnie głębinowe — wiercenie, budowa, renowacja | studnie.biz</title>
+                <meta name="description" content="Wiercenie studni głębinowych metodą udarową na sprężone powietrze. Budowa, renowacja, kamerowanie i likwidacja studni. 10 lat gwarancji. Działamy od 1968 roku." />
+                <meta property="og:title" content="Studnie głębinowe — wiercenie, budowa, renowacja | studnie.biz" />
+                <meta property="og:description" content="Wiercenie studni głębinowych metodą udarową na sprężone powietrze. Budowa, renowacja, kamerowanie i likwidacja. 10 lat gwarancji." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/studnie" />
+                <link rel="canonical" href="https://studnie.biz/studnie" />
+            </Helmet>
             <PageHero title="Studnie głębinowe" subtitle="Wiercenie, budowa, renowacja i likwidacja studni głębinowych. Metoda udarowa na sprężone powietrze dla maksymalnej wydajności." icon={Icons.water} />
 
             <section style={{ padding: "80px 24px", background: "white" }}>

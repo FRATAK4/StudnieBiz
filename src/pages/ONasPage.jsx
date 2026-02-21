@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -8,6 +9,15 @@ import { PageHero } from "../components/PageHero.jsx";
 export default function ONasPage() {
     return (
         <div>
+            <Helmet>
+                <title>O nas — Zakład Usług Studziennych od 1968 | studnie.biz</title>
+                <meta name="description" content="Zakład Usług Studziennych Bernard Marian Wójcik — ponad 55 lat tradycji wiertniczej. Jedyna firma w Polsce z niemieckim certyfikatem DVGW BAU W 120-1 i W 120-2." />
+                <meta property="og:title" content="O nas — Zakład Usług Studziennych od 1968 | studnie.biz" />
+                <meta property="og:description" content="Ponad 55 lat tradycji wiertniczej. Jedyna firma w Polsce z certyfikatem DVGW BAU. Współpraca z PORT PC, STIEBEL ELTRON i AGH." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/o-nas" />
+                <link rel="canonical" href="https://studnie.biz/o-nas" />
+            </Helmet>
             <PageHero title="O nas" subtitle="Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o. — ponad 55 lat tradycji wiertniczej, nowoczesne technologie i niemiecki certyfikat DVGW BAU." icon={Icons.users} />
 
             <section style={{ padding: "80px 24px", background: "white" }}>

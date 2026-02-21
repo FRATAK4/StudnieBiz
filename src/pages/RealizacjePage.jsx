@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
@@ -14,6 +15,15 @@ const locations = [
 export default function RealizacjePage() {
     return (
         <div>
+            <Helmet>
+                <title>Realizacje i referencje — ponad 35 000 odwiertów | studnie.biz</title>
+                <meta name="description" content="Ponad 35 000 wykonanych otworów na terenie całej Polski. Realizacje dla Zbyszko, Hortex, Sokpol, INDUSTRIA i wielu innych. Referencje klientów." />
+                <meta property="og:title" content="Realizacje i referencje — ponad 35 000 odwiertów | studnie.biz" />
+                <meta property="og:description" content="Ponad 35 000 wykonanych otworów na terenie całej Polski. Referencje od Zbyszko, Hortex, Sokpol i wielu innych." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://studnie.biz/realizacje" />
+                <link rel="canonical" href="https://studnie.biz/realizacje" />
+            </Helmet>
             <PageHero title="Nasze realizacje" subtitle="Ponad 35 000 wykonanych otworów na terenie całej Polski. Od studni dla domów jednorodzinnych po wielkie projekty publiczne." icon={Icons.award} />
 
             <section style={{ padding: "80px 24px", background: "white" }}>

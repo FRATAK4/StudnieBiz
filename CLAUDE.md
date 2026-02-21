@@ -124,7 +124,7 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. Może ulec zmianie — kolor
 - [x] Cały kod w jednym pliku `App.jsx` — wymaga rozbicia na komponenty
 - [x] Routing stanowy (useState) — zamienić na react-router-dom z prawdziwymi URL-ami
 - [ ] Placeholdery zamiast zdjęć — wymienić na prawdziwe fotografie firmy
-- [ ] Brak SEO (meta tagi, Open Graph, structured data)
+- [x] Brak SEO (meta tagi, Open Graph, structured data)
 - [ ] Formularz kontaktowy nie wysyła maili — potrzebny backend lub usługa typu Formspree
 - [ ] Brak wersji mobilnej galerii zdjęć
 - [ ] Kolorystyka do ostatecznego zatwierdzenia przez klienta
