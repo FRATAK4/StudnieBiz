@@ -207,7 +207,7 @@ export default function HomePage() {
                                 Jako jedyna firma wiertnicza w Polsce posiadamy niemiecki certyfikat DVGW BAU.
                             </p>
                             <FeatureItem icon={Icons.layers} title="Kompleksowość" description="Od projektu geologicznego, przez wiercenie, po dokumentację powykonawczą. Darmowa wizja lokalna." />
-                            <FeatureItem icon={Icons.award} title="Certyfikat DVGW BAU" description="Certyfikaty W 120-1 (geotermia) i W 120-2 (budowa studni). Jedyna taka firma w Polsce." />
+                            <FeatureItem icon={Icons.award} title="Certyfikat DVGW BAU" description="Certyfikaty W 120-1 (Brunnenbau — budowa studni) i W 120-2 (Geothermie — geotermia). Jedyna taka firma w Polsce." />
                             <FeatureItem icon={Icons.users} title="Doświadczony zespół" description="Wykwalifikowani pracownicy z wieloletnim stażem. Współpraca z AGH i PORT PC." />
                         </AnimatedSection>
                     </div>
