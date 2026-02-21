@@ -69,7 +69,12 @@ export default function PompyPage() {
                                 { loc: "Sobów", desc: "37 otworów × 200m — Dom Pomocy Społecznej", km: "6,5 km" },
                                 { loc: "Piekoszów", desc: "50 otworów × 100m — Hala produkcyjna WW TECH", km: "5,0 km" },
                                 { loc: "Zamość", desc: "44 otwory × 100m — Zespół Szkół Ponadgimnazjalnych nr 4", km: "4,4 km" },
-                                { loc: "Mariówka", desc: "48 otworów × 100m — Dom Generalny Zgromadzenia Sióstr", km: "4,8 km" },
+                                { loc: "Mariówka", desc: "48 otworów × 100m — Dom Generalny Zgromadzenia Sióstr Służek NMP Niepokalanej", km: "4,8 km" },
+                                { loc: "Osiny", desc: "40 otworów × 100m — Zakład Opiekuńczo-Leczniczy", km: "4,0 km" },
+                                { loc: "Miechów", desc: "26 otworów × 100m — Plebania i Dom Sióstr Parafii Grobu Bożego", km: "2,6 km" },
+                                { loc: "Dziekanowice", desc: "22 otwory × 100m — Budynek Szkoły", km: "2,2 km" },
+                                { loc: "Tarnów", desc: "12 otworów × 100m — Budynek mieszkalny wielorodzinny", km: "1,2 km" },
+                                { loc: "Baćkowice", desc: "5 otworów × 195m — Budynek wielofunkcyjny Urzędu Gminy", km: "0,9 km" },
                             ].map((item, i) => (
                                 <div key={i} style={{
                                     background: "white", borderRadius: 14, padding: 24,
