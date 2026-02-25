@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { StatCounter } from "../components/StatCounter.jsx";
@@ -28,53 +27,36 @@ export default function HomePage() {
                 <link rel="canonical" href="https://studnie.biz/" />
             </Helmet>
             {/* Hero */}
-            <section style={{
-                minHeight: "100vh",
-                background: `linear-gradient(135deg, ${COLORS.navy} 0%, ${COLORS.deepBlue} 50%, #0f3460 100%)`,
-                display: "flex", alignItems: "center", position: "relative", overflow: "hidden",
-                padding: "120px 24px 80px",
-            }}>
+            <section className="min-h-screen bg-gradient-to-br from-navy via-deep-blue to-[#0f3460] flex items-center relative overflow-hidden pt-30 pb-20 px-6">
                 <div className="noise-overlay" />
                 {/* Decorative circles */}
-                <div style={{ position: "absolute", top: "10%", right: "5%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,180,216,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-                <div style={{ position: "absolute", bottom: "10%", left: "-5%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(26,111,181,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+                <div className="absolute top-[10%] right-[5%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(0,180,216,0.08),transparent_70%)] pointer-events-none" />
+                <div className="absolute bottom-[10%] -left-[5%] w-[300px] h-[300px] rounded-full bg-[radial-gradient(circle,rgba(26,111,181,0.1),transparent_70%)] pointer-events-none" />
 
-                <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", position: "relative", zIndex: 1 }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="hero-grid">
+                <div className="max-w-[1200px] mx-auto w-full relative z-1">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 items-center">
                         <div>
-                            <div className="animate-in animate-delay-1" style={{ marginBottom: 24 }}>
-                <span style={{
-                    display: "inline-flex", alignItems: "center", gap: 8,
-                    background: "rgba(0,180,216,0.1)", border: "1px solid rgba(0,180,216,0.2)",
-                    padding: "8px 16px", borderRadius: 50, color: COLORS.accent,
-                    fontSize: 13, fontWeight: 600, fontFamily: "'Outfit', sans-serif",
-                }}>
-                  {Icons.shield} Od 1968 roku — ponad 35 000 odwiertów
-                </span>
+                            <div className="animate-in animate-delay-1 mb-6">
+                                <span className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 py-2 px-4 rounded-full text-accent text-[13px] font-semibold font-heading">
+                                    {Icons.shield} Od 1968 roku — ponad 35 000 odwiertów
+                                </span>
                             </div>
 
-                            <h1 className="animate-in animate-delay-2" style={{
-                                fontFamily: "'Outfit', sans-serif", fontWeight: 900,
-                                fontSize: "clamp(36px, 5vw, 64px)", lineHeight: 1.08,
-                                color: "white", marginBottom: 24,
-                            }}>
+                            <h1 className="animate-in animate-delay-2 font-heading font-black text-[clamp(36px,5vw,64px)] leading-[1.08] text-white mb-6">
                                 Wiercenia <br/>
-                                <span style={{ background: "linear-gradient(135deg, #3d9be9, #00b4d8, #48cae4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  studni głębinowych
-                </span><br/>
+                                <span className="bg-gradient-to-br from-light-blue via-accent to-water bg-clip-text text-transparent">
+                                    studni głębinowych
+                                </span><br/>
                                 i odwierty pod<br/>
                                 pompy ciepła
                             </h1>
 
-                            <p className="animate-in animate-delay-3" style={{
-                                fontSize: 18, color: "rgba(255,255,255,0.65)", lineHeight: 1.8,
-                                maxWidth: 500, marginBottom: 36,
-                            }}>
+                            <p className="animate-in animate-delay-3 text-lg text-white/65 leading-relaxed max-w-[500px] mb-9">
                                 Jedyna firma wiertnicza w Polsce z niemieckim certyfikatem DVGW BAU.
                                 Kompleksowa obsługa — od projektu, przez wiercenie, po dokumentację.
                             </p>
 
-                            <div className="animate-in animate-delay-4" style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                            <div className="animate-in animate-delay-4 flex gap-4 flex-wrap">
                                 <button className="btn-primary" onClick={() => go("/kontakt")}>
                                     Bezpłatna wycena {Icons.arrowRight}
                                 </button>
@@ -84,43 +66,27 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        <div className="animate-in animate-delay-5 hero-image-col">
-                            <div style={{ position: "relative" }}>
+                        <div className="animate-in animate-delay-5 hidden lg:block">
+                            <div className="relative">
                                 <ImgPlaceholder label="Zdjęcie wiertnicy w terenie" height={480} style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,0.08)" }} />
                                 {/* Floating stat card */}
-                                <div className="glass" style={{
-                                    position: "absolute", bottom: -20, left: -20,
-                                    padding: "20px 24px", borderRadius: 16,
-                                    animation: "float 4s ease-in-out infinite",
-                                }}>
-                                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 900, fontSize: 32, color: COLORS.accent }}>60+</div>
-                                    <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 13, fontWeight: 500 }}>Lat doświadczenia</div>
+                                <div className="glass absolute -bottom-5 -left-5 p-5 px-6 rounded-2xl animate-float">
+                                    <div className="font-heading font-black text-[32px] text-accent">60+</div>
+                                    <div className="text-white/70 text-[13px] font-medium">Lat doświadczenia</div>
                                 </div>
-                                <div className="glass" style={{
-                                    position: "absolute", top: 20, right: -10,
-                                    padding: "16px 20px", borderRadius: 14,
-                                    animation: "float 5s ease-in-out infinite",
-                                    animationDelay: "1s",
-                                }}>
-                                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 14, color: COLORS.accent }}>Certyfikat DVGW BAU</div>
-                                    <div style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>W 120-1 & W 120-2</div>
+                                <div className="glass absolute top-5 -right-2.5 py-4 px-5 rounded-[14px] animate-float" style={{ animationDelay: "1s" }}>
+                                    <div className="font-heading font-extrabold text-sm text-accent">Certyfikat DVGW BAU</div>
+                                    <div className="text-white/60 text-xs">W 120-1 & W 120-2</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <style>{`
-          @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr !important; }
-            .hero-image-col { display: none !important; }
-          }
-        `}</style>
             </section>
 
             {/* Stats bar */}
-            <section className="water-gradient" style={{ padding: "60px 24px" }}>
-                <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 40 }}>
+            <section className="water-gradient py-15 px-6">
+                <div className="max-w-[1000px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-10">
                     <StatCounter value={35000} suffix="+" label="wykonanych otworów" />
                     <StatCounter value={60} suffix="+" label="lat doświadczenia" />
                     <StatCounter value={10} label="lat gwarancji na studnię" />
@@ -129,17 +95,17 @@ export default function HomePage() {
             </section>
 
             {/* Services */}
-            <section style={{ padding: "100px 24px", background: COLORS.offWhite }}>
-                <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-                    <AnimatedSection style={{ textAlign: "center", marginBottom: 60 }}>
+            <section className="py-25 px-6 bg-off-white">
+                <div className="max-w-[1200px] mx-auto">
+                    <AnimatedSection className="text-center mb-15">
                         <div className="section-tag">Nasze usługi</div>
                         <h2 className="section-title">Kompleksowe usługi wiertnicze</h2>
-                        <p className="section-subtitle" style={{ margin: "0 auto" }}>
+                        <p className="section-subtitle mx-auto">
                             Od studni głębinowych po odwierty pod pompy ciepła — realizujemy projekty na terenie całej Polski.
                         </p>
                     </AnimatedSection>
 
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+                    <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6">
                         <AnimatedSection>
                             <ServiceCard
                                 icon={Icons.water}
@@ -193,16 +159,16 @@ export default function HomePage() {
             </section>
 
             {/* Why Us */}
-            <section style={{ padding: "100px 24px", background: "white" }}>
-                <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }} className="why-us-grid">
+            <section className="py-25 px-6 bg-white">
+                <div className="max-w-[1200px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                         <AnimatedSection>
                             <ImgPlaceholder label="Zespół wiertniczy przy wiertnicy" height={500} style={{ borderRadius: 20 }} />
                         </AnimatedSection>
                         <AnimatedSection>
                             <div className="section-tag">Dlaczego my?</div>
                             <h2 className="section-title">Ponad pół wieku doświadczenia w branży wiertniczej</h2>
-                            <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 36 }}>
+                            <p className="text-gray-500 leading-relaxed text-base mb-9">
                                 Zakład Usług Studziennych działa nieprzerwanie od 1968 roku.
                                 Jako jedyna firma wiertnicza w Polsce posiadamy niemiecki certyfikat DVGW BAU.
                             </p>
@@ -212,34 +178,25 @@ export default function HomePage() {
                         </AnimatedSection>
                     </div>
                 </div>
-                <style>{`
-          @media (max-width: 768px) {
-            .why-us-grid { grid-template-columns: 1fr !important; }
-          }
-        `}</style>
             </section>
 
             {/* CTA */}
-            <section style={{
-                padding: "100px 24px",
-                background: `linear-gradient(135deg, ${COLORS.navy}, ${COLORS.deepBlue})`,
-                position: "relative", overflow: "hidden", textAlign: "center",
-            }}>
+            <section className="py-25 px-6 bg-gradient-to-br from-navy to-deep-blue relative overflow-hidden text-center">
                 <div className="noise-overlay" />
-                <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
+                <div className="relative z-1 max-w-[700px] mx-auto">
                     <AnimatedSection>
-                        <h2 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 900, fontSize: "clamp(28px, 4vw, 44px)", color: "white", marginBottom: 20, lineHeight: 1.2 }}>
+                        <h2 className="font-heading font-black text-[clamp(28px,4vw,44px)] text-white mb-5 leading-tight">
                             Potrzebujesz studni lub odwiertu pod pompę ciepła?
                         </h2>
-                        <p style={{ fontSize: 18, color: "rgba(255,255,255,0.65)", lineHeight: 1.8, marginBottom: 36 }}>
+                        <p className="text-lg text-white/65 leading-relaxed mb-9">
                             Skontaktuj się z nami — darmowe rozpoznanie warunków i wizja lokalna.
                             Działamy na terenie całej Polski.
                         </p>
-                        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                            <button className="btn-primary" style={{ fontSize: 16, padding: "16px 36px" }} onClick={() => go("/kontakt")}>
+                        <div className="flex gap-4 justify-center flex-wrap">
+                            <button className="btn-primary !text-base !py-4 !px-9" onClick={() => go("/kontakt")}>
                                 {Icons.phone} Zadzwoń: 602 333 745
                             </button>
-                            <button className="btn-outline" style={{ fontSize: 16, padding: "16px 36px" }} onClick={() => go("/kontakt")}>
+                            <button className="btn-outline !text-base !py-4 !px-9" onClick={() => go("/kontakt")}>
                                 {Icons.mail} Napisz do nas
                             </button>
                         </div>

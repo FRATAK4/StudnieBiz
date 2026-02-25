@@ -1,41 +1,22 @@
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 
 export function ServiceCard({ icon, title, description, onClick }) {
     return (
         <div
-            className="card-hover"
+            className="card-hover bg-white rounded-2xl p-8 cursor-pointer border border-black/6 relative overflow-hidden"
             onClick={onClick}
-            style={{
-                background: "white",
-                borderRadius: 16,
-                padding: 32,
-                cursor: "pointer",
-                border: "1px solid rgba(0,0,0,0.06)",
-                position: "relative",
-                overflow: "hidden",
-            }}
         >
-            <div style={{
-                position: "absolute", top: -20, right: -20, width: 100, height: 100,
-                background: "linear-gradient(135deg, rgba(0,180,216,0.06), transparent)",
-                borderRadius: "50%",
-            }} />
-            <div style={{
-                width: 56, height: 56, borderRadius: 14,
-                background: "linear-gradient(135deg, rgba(26,111,181,0.1), rgba(0,180,216,0.1))",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: COLORS.blue, marginBottom: 20,
-            }}>
+            <div className="absolute -top-5 -right-5 w-[100px] h-[100px] bg-gradient-to-br from-accent/6 to-transparent rounded-full" />
+            <div className="w-14 h-14 rounded-[14px] bg-gradient-to-br from-blue/10 to-accent/10 flex items-center justify-center text-blue mb-5">
                 {icon}
             </div>
-            <h3 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 20, marginBottom: 12, color: COLORS.navy }}>
+            <h3 className="font-heading font-bold text-xl mb-3 text-navy">
                 {title}
             </h3>
-            <p style={{ color: COLORS.gray, lineHeight: 1.7, fontSize: 15, marginBottom: 16 }}>
+            <p className="text-gray-500 leading-relaxed text-[15px] mb-4">
                 {description}
             </p>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, color: COLORS.blue, fontWeight: 600, fontSize: 14, fontFamily: "'Outfit', sans-serif" }}>
+            <div className="flex items-center gap-1.5 text-blue font-semibold text-sm font-heading">
                 Dowiedz się więcej {Icons.arrowRight}
             </div>
         </div>

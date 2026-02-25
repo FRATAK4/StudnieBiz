@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { COLORS } from "../data/content.js";
 
 export function StatCounter({ value, suffix = "", label }) {
     const [count, setCount] = useState(0);
@@ -32,11 +31,11 @@ export function StatCounter({ value, suffix = "", label }) {
     }, [value]);
 
     return (
-        <div ref={ref} style={{ textAlign: "center" }}>
-            <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 900, color: COLORS.accent, lineHeight: 1 }}>
+        <div ref={ref} className="text-center">
+            <div className="font-heading text-[clamp(36px,5vw,56px)] font-black text-accent leading-none">
                 {count}{suffix}
             </div>
-            <div style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", marginTop: 8, fontWeight: 500 }}>{label}</div>
+            <div className="text-[15px] text-white/70 mt-2 font-medium">{label}</div>
         </div>
     );
 }

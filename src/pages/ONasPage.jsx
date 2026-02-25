@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
@@ -20,20 +19,20 @@ export default function ONasPage() {
             </Helmet>
             <PageHero title="O nas" subtitle="Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o. — ponad 55 lat tradycji wiertniczej, nowoczesne technologie i niemiecki certyfikat DVGW BAU." icon={Icons.users} />
 
-            <section style={{ padding: "80px 24px", background: "white" }}>
-                <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <section className="py-20 px-6 bg-white">
+                <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }} className="content-grid">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
                             <div>
                                 <div className="section-tag">Nasza historia</div>
-                                <h2 className="section-title" style={{ fontSize: 32 }}>Od 1968 roku nieprzerwanie</h2>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 20 }}>
+                                <h2 className="section-title !text-[32px]">Od 1968 roku nieprzerwanie</h2>
+                                <p className="text-gray-500 leading-relaxed text-base mb-5">
                                     Zakład Usług Studziennych to firma, w której właściciel wykonuje roboty wiertnicze nieprzerwanie od 1968 roku. Odwierty wykonujemy w różnych technologiach w zależności od warunków geologicznych.
                                 </p>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 20 }}>
+                                <p className="text-gray-500 leading-relaxed text-base mb-5">
                                     Dysponujemy wiedzą i urządzeniami pozwalającymi pracować w każdych warunkach. Wdrażamy nowoczesne technologie oraz wykorzystujemy materiały chroniące środowisko.
                                 </p>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 28 }}>
+                                <p className="text-gray-500 leading-relaxed text-base mb-7">
                                     Swoją działalność opieramy na wykwalifikowanych pracownikach, z którymi współpracujemy nawet od kilkunastu lat. Doskonały personel stanowi fundament naszej firmy i gwarancję dobrze wykonanej pracy.
                                 </p>
                             </div>
@@ -43,23 +42,20 @@ export default function ONasPage() {
                         </div>
                     </AnimatedSection>
                 </div>
-                <style>{`
-          @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
             </section>
 
             {/* Certyfikat */}
-            <section style={{ padding: "80px 24px", background: COLORS.offWhite }}>
-                <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <section className="py-20 px-6 bg-off-white">
+                <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="content-grid">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-center">
                             <div>
                                 <ImgPlaceholder label="Certyfikat DVGW BAU W 120-1 / W 120-2" height={350} style={{ borderRadius: 16 }} />
                             </div>
                             <div>
                                 <div className="section-tag">Certyfikat</div>
-                                <h2 className="section-title" style={{ fontSize: 32 }}>Jedyna firma w Polsce z certyfikatem DVGW BAU</h2>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 24 }}>
+                                <h2 className="section-title !text-[32px]">Jedyna firma w Polsce z certyfikatem DVGW BAU</h2>
+                                <p className="text-gray-500 leading-relaxed text-base mb-6">
                                     Jako jedyna i pierwsza firma wiertnicza w Polsce posiadamy niemiecki certyfikat BAU.
                                     Certyfikaty W 120-1 (Brunnenbau — budowa studni) i W 120-2 (Geothermie — geotermia) otrzymują wyłącznie firmy spełniające rygorystyczne wymogi formalne, personalne i rzeczowe.
                                 </p>
@@ -77,17 +73,14 @@ export default function ONasPage() {
             </section>
 
             {/* Członkostwa */}
-            <section style={{ padding: "60px 24px", background: "white" }}>
-                <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+            <section className="py-15 px-6 bg-white">
+                <div className="max-w-[800px] mx-auto text-center">
                     <AnimatedSection>
                         <div className="section-tag">Członkostwa i współpraca</div>
-                        <h2 className="section-title" style={{ fontSize: 28 }}>Współpracujemy z najlepszymi</h2>
-                        <div style={{ display: "flex", justifyContent: "center", gap: 40, flexWrap: "wrap", marginTop: 32 }}>
+                        <h2 className="section-title !text-[28px]">Współpracujemy z najlepszymi</h2>
+                        <div className="flex justify-center gap-10 flex-wrap mt-8">
                             {["PORT PC", "STIEBEL ELTRON", "AGH Kraków"].map((name, i) => (
-                                <div key={i} style={{
-                                    background: COLORS.offWhite, borderRadius: 14, padding: "24px 36px",
-                                    fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 18, color: COLORS.navy,
-                                }}>
+                                <div key={i} className="bg-off-white rounded-[14px] py-6 px-9 font-heading font-bold text-lg text-navy">
                                     {name}
                                 </div>
                             ))}
@@ -97,23 +90,19 @@ export default function ONasPage() {
             </section>
 
             {/* Materiały */}
-            <section style={{ padding: "80px 24px", background: COLORS.offWhite }}>
-                <div style={{ maxWidth: 900, margin: "0 auto" }}>
+            <section className="py-20 px-6 bg-off-white">
+                <div className="max-w-[900px] mx-auto">
                     <AnimatedSection>
                         <div className="section-tag">Jakość</div>
-                        <h2 className="section-title" style={{ fontSize: 28 }}>Stosowane materiały</h2>
-                        <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 24 }}>
+                        <h2 className="section-title !text-[28px]">Stosowane materiały</h2>
+                        <p className="text-gray-500 leading-relaxed text-base mb-6">
                             Na każdym etapie świadczonych usług wykorzystujemy wyłącznie produkty najwyższej jakości renomowanych producentów.
                             Gotowe sondy gruntowe i studnie rozdzielaczowe posiadają Krajowe Deklaracje Właściwości Użytkowych.
                             Rury PCV do studni posiadają aktualny atest higieniczny do kontaktu z wodą pitną.
                         </p>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16 }}>
+                        <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-4">
                             {["Rury studzienne PCV", "Rury osłonowe", "Sondy gruntowe PE", "Obsypka żwirowa"].map((item, i) => (
-                                <div key={i} style={{
-                                    background: "white", borderRadius: 12, padding: 20, textAlign: "center",
-                                    fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: 15,
-                                    color: COLORS.navy, border: "1px solid rgba(0,0,0,0.06)",
-                                }}>
+                                <div key={i} className="bg-white rounded-xl p-5 text-center font-heading font-semibold text-[15px] text-navy border border-black/6">
                                     {item}
                                 </div>
                             ))}

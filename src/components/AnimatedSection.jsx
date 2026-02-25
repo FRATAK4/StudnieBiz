@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-export function AnimatedSection({ children, style = {}, className = "" }) {
+export function AnimatedSection({ children, className = "" }) {
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
 
@@ -18,13 +18,7 @@ export function AnimatedSection({ children, style = {}, className = "" }) {
     return (
         <div
             ref={ref}
-            className={className}
-            style={{
-                ...style,
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(30px)",
-                transition: "all 0.7s cubic-bezier(0.23, 1, 0.32, 1)",
-            }}
+            className={`transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"} ${className}`}
         >
             {children}
         </div>

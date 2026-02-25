@@ -1,20 +1,14 @@
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 
 export function CheckList({ items }) {
     return (
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+        <div className="flex flex-col gap-3">
             {items.map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <div style={{
-                        flexShrink: 0, width: 24, height: 24, borderRadius: 6,
-                        background: "linear-gradient(135deg, rgba(0,180,216,0.15), rgba(26,111,181,0.15))",
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        color: COLORS.blue, marginTop: 2,
-                    }}>
+                <div key={i} className="flex items-start gap-2.5">
+                    <div className="shrink-0 w-6 h-6 rounded-md bg-gradient-to-br from-accent/15 to-blue/15 flex items-center justify-center text-blue mt-0.5">
                         {Icons.check}
                     </div>
-                    <span style={{ color: COLORS.dark, lineHeight: 1.6, fontSize: 15 }}>{item}</span>
+                    <span className="text-gray-900 leading-relaxed text-[15px]">{item}</span>
                 </div>
             ))}
         </div>

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { COLORS, inputStyle } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { PageHero } from "../components/PageHero.jsx";
+
+const inputClasses = "w-full py-3.5 px-4 rounded-[10px] border border-black/10 text-[15px] font-body bg-white outline-none transition-colors duration-200 focus:border-blue";
 
 export default function KontaktPage() {
     const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "", service: "" });
@@ -21,18 +22,18 @@ export default function KontaktPage() {
             </Helmet>
             <PageHero title="Kontakt" subtitle="Skontaktuj się z nami — darmowe rozpoznanie warunków i wizja lokalna. Dział techniczny zawsze do Twojej dyspozycji." icon={Icons.phone} />
 
-            <section style={{ padding: "80px 24px", background: "white" }}>
-                <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }} className="content-grid">
+            <section className="py-20 px-6 bg-white">
+                <div className="max-w-[1100px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
                         {/* Info */}
                         <AnimatedSection>
                             <div className="section-tag">Dane kontaktowe</div>
-                            <h2 className="section-title" style={{ fontSize: 28 }}>Zakład Usług Studziennych</h2>
-                            <p style={{ color: COLORS.gray, fontSize: 16, marginBottom: 32 }}>
+                            <h2 className="section-title !text-[28px]">Zakład Usług Studziennych</h2>
+                            <p className="text-gray-500 text-base mb-8">
                                 Bernard Marian Wójcik Sp. z o.o.
                             </p>
 
-                            <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                            <div className="flex flex-col gap-6">
                                 {[
                                     { icon: Icons.mapPin, label: "Adres", value: "ul. Spacerowa 5, 25-026 Kielce" },
                                     { icon: Icons.phone, label: "Telefon", value: "602 333 745 / 602 333 992" },
@@ -40,17 +41,13 @@ export default function KontaktPage() {
                                     { icon: Icons.mail, label: "Email", value: "studnie1@gmail.com" },
                                     { icon: Icons.globe, label: "Strona www", value: "www.studnie.biz" },
                                 ].map((item, i) => (
-                                    <div key={i} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-                                        <div style={{
-                                            width: 48, height: 48, borderRadius: 12, flexShrink: 0,
-                                            background: "linear-gradient(135deg, rgba(26,111,181,0.1), rgba(0,180,216,0.1))",
-                                            display: "flex", alignItems: "center", justifyContent: "center", color: COLORS.blue,
-                                        }}>
+                                    <div key={i} className="flex gap-4 items-start">
+                                        <div className="w-12 h-12 rounded-xl shrink-0 bg-gradient-to-br from-blue/10 to-accent/10 flex items-center justify-center text-blue">
                                             {item.icon}
                                         </div>
                                         <div>
-                                            <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: 13, color: COLORS.gray, marginBottom: 4 }}>{item.label}</div>
-                                            <div style={{ fontWeight: 600, fontSize: 16, color: COLORS.navy }}>{item.value}</div>
+                                            <div className="font-heading font-semibold text-[13px] text-gray-500 mb-1">{item.label}</div>
+                                            <div className="font-semibold text-base text-navy">{item.value}</div>
                                         </div>
                                     </div>
                                 ))}
@@ -59,18 +56,15 @@ export default function KontaktPage() {
 
                         {/* Form */}
                         <AnimatedSection>
-                            <div style={{
-                                background: COLORS.offWhite, borderRadius: 20, padding: 36,
-                                border: "1px solid rgba(0,0,0,0.06)",
-                            }}>
-                                <h3 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 22, marginBottom: 24, color: COLORS.navy }}>
+                            <div className="bg-off-white rounded-[20px] p-9 border border-black/6">
+                                <h3 className="font-heading font-bold text-[22px] mb-6 text-navy">
                                     Wyślij zapytanie
                                 </h3>
-                                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                                <div className="flex flex-col gap-4">
                                     <select
                                         value={formData.service}
                                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                                        style={inputStyle}
+                                        className={inputClasses}
                                     >
                                         <option value="">Wybierz usługę...</option>
                                         <option value="studnia">Studnia głębinowa</option>
@@ -83,20 +77,20 @@ export default function KontaktPage() {
                                         type="text" placeholder="Imię i nazwisko"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        style={inputStyle}
+                                        className={inputClasses}
                                     />
-                                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                                    <div className="grid grid-cols-2 gap-4">
                                         <input
                                             type="email" placeholder="Email"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            style={inputStyle}
+                                            className={inputClasses}
                                         />
                                         <input
                                             type="tel" placeholder="Telefon"
                                             value={formData.phone}
                                             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                            style={inputStyle}
+                                            className={inputClasses}
                                         />
                                     </div>
                                     <textarea
@@ -104,9 +98,9 @@ export default function KontaktPage() {
                                         rows={5}
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        style={{ ...inputStyle, resize: "vertical" }}
+                                        className={`${inputClasses} resize-y`}
                                     />
-                                    <button className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "16px 32px" }}>
+                                    <button className="btn-primary w-full justify-center !py-4 !px-8">
                                         Wyślij zapytanie {Icons.arrowRight}
                                     </button>
                                 </div>
@@ -114,9 +108,6 @@ export default function KontaktPage() {
                         </AnimatedSection>
                     </div>
                 </div>
-                <style>{`
-          @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
             </section>
         </div>
     );

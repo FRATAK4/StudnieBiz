@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 
 const navItems = [
@@ -32,71 +31,44 @@ export function Navigation() {
         window.scrollTo(0, 0);
     };
 
-    const navStyle = {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        padding: scrolled ? "12px 0" : "20px 0",
-        background: scrolled ? "rgba(10, 22, 40, 0.95)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
-        transition: "all 0.3s ease",
-    };
-
     return (
-        <nav style={navStyle}>
-            <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${scrolled ? "py-3 bg-navy/95 backdrop-blur-xl border-b border-white/6" : "py-5 bg-transparent"}`}>
+            <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <div
-                    style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}
+                    className="cursor-pointer flex items-center gap-2.5"
                     onClick={() => handleNav("/")}
                 >
-                    <div style={{
-                        width: 40, height: 40, borderRadius: 10,
-                        background: "linear-gradient(135deg, var(--blue), var(--accent))",
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        color: "white", fontFamily: "'Outfit', sans-serif", fontWeight: 900, fontSize: 18,
-                    }}>
+                    <div className="w-10 h-10 rounded-[10px] bg-gradient-to-br from-blue to-accent flex items-center justify-center text-white font-heading font-black text-lg">
                         S
                     </div>
                     <div>
-                        <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 20, color: "white", lineHeight: 1.1 }}>
-                            studnie<span style={{ color: COLORS.accent }}>.biz</span>
+                        <div className="font-heading font-extrabold text-xl text-white leading-tight">
+                            studnie<span className="text-accent">.biz</span>
                         </div>
-                        <div style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 600 }}>
+                        <div className="text-[10px] text-white/50 tracking-[1.5px] uppercase font-semibold">
                             studnie · głębinowe · pompy ciepła
                         </div>
                     </div>
                 </div>
 
                 {/* Desktop nav */}
-                <div style={{ display: "flex", alignItems: "center", gap: 4 }} className="desktop-nav">
+                <div className="hidden lg:flex items-center gap-1">
                     {navItems.map((item) => (
                         <button
                             key={item.path}
                             onClick={() => handleNav(item.path)}
-                            style={{
-                                background: location.pathname === item.path ? "rgba(0,180,216,0.15)" : "transparent",
-                                border: "none",
-                                color: location.pathname === item.path ? COLORS.accent : "rgba(255,255,255,0.75)",
-                                padding: "8px 14px",
-                                borderRadius: 6,
-                                fontSize: 14,
-                                fontWeight: 600,
-                                fontFamily: "'Outfit', sans-serif",
-                                cursor: "pointer",
-                                transition: "all 0.2s ease",
-                                whiteSpace: "nowrap",
-                            }}
+                            className={`border-none px-3.5 py-2 rounded-md text-sm font-semibold font-heading cursor-pointer transition-all duration-200 whitespace-nowrap ${
+                                location.pathname === item.path
+                                    ? "bg-accent/15 text-accent"
+                                    : "bg-transparent text-white/75 hover:text-white"
+                            }`}
                         >
                             {item.label}
                         </button>
                     ))}
                     <button
-                        className="btn-primary"
-                        style={{ marginLeft: 12, padding: "10px 20px", fontSize: 13 }}
+                        className="btn-primary ml-3 !py-2.5 !px-5 !text-[13px]"
                         onClick={() => handleNav("/kontakt")}
                     >
                         {Icons.phone}
@@ -106,9 +78,8 @@ export function Navigation() {
 
                 {/* Mobile toggle */}
                 <button
-                    className="mobile-toggle"
+                    className="lg:hidden bg-transparent border-none text-white cursor-pointer"
                     onClick={() => setMobileOpen(!mobileOpen)}
-                    style={{ display: "none", background: "none", border: "none", color: "white", cursor: "pointer" }}
                 >
                     {mobileOpen ? Icons.close : Icons.menu}
                 </button>
@@ -116,36 +87,22 @@ export function Navigation() {
 
             {/* Mobile menu */}
             {mobileOpen && (
-                <div style={{
-                    position: "absolute", top: "100%", left: 0, right: 0,
-                    background: "rgba(10,22,40,0.98)", backdropFilter: "blur(20px)",
-                    padding: 24, borderTop: "1px solid rgba(255,255,255,0.06)",
-                    animation: "fadeIn 0.2s ease",
-                }}>
+                <div className="absolute top-full left-0 right-0 bg-navy/98 backdrop-blur-xl p-6 border-t border-white/6 animate-fade-in">
                     {navItems.map((item) => (
                         <button
                             key={item.path}
                             onClick={() => handleNav(item.path)}
-                            style={{
-                                display: "block", width: "100%", textAlign: "left",
-                                background: location.pathname === item.path ? "rgba(0,180,216,0.1)" : "transparent",
-                                border: "none", color: location.pathname === item.path ? COLORS.accent : "rgba(255,255,255,0.8)",
-                                padding: "14px 16px", borderRadius: 8, fontSize: 16, fontWeight: 600,
-                                fontFamily: "'Outfit', sans-serif", cursor: "pointer", marginBottom: 4,
-                            }}
+                            className={`block w-full text-left border-none py-3.5 px-4 rounded-lg text-base font-semibold font-heading cursor-pointer mb-1 ${
+                                location.pathname === item.path
+                                    ? "bg-accent/10 text-accent"
+                                    : "bg-transparent text-white/80"
+                            }`}
                         >
                             {item.label}
                         </button>
                     ))}
                 </div>
             )}
-
-            <style>{`
-        @media (max-width: 1024px) {
-          .desktop-nav { display: none !important; }
-          .mobile-toggle { display: block !important; }
-        }
-      `}</style>
         </nav>
     );
 }

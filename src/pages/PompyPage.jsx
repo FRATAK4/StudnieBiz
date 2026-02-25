@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
@@ -21,14 +20,14 @@ export default function PompyPage() {
             </Helmet>
             <PageHero title="Pompy ciepła" subtitle="Odwierty pod gruntowe wymienniki ciepła. Bezkonkurencyjna efektywność, niezawodność i komfort ogrzewania. Klasa energetyczna A+++." icon={Icons.flame} />
 
-            <section style={{ padding: "80px 24px", background: "white" }}>
-                <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <section className="py-20 px-6 bg-white">
+                <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }} className="content-grid">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
                             <div>
                                 <div className="section-tag">Dlaczego gruntowa pompa ciepła?</div>
-                                <h2 className="section-title" style={{ fontSize: 32 }}>Najwyższa efektywność energetyczna</h2>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 28 }}>
+                                <h2 className="section-title !text-[32px]">Najwyższa efektywność energetyczna</h2>
+                                <p className="text-gray-500 leading-relaxed text-base mb-7">
                                     W porównaniu z powietrznymi, gruntowe pompy ciepła osiągają lepsze współczynniki efektywności. Temperatura gruntu jest stabilna i w zimie osiąga wyższe wartości niż powietrza. Żywotność pomp ciepła szacowana jest na 30 lat.
                                 </p>
                                 <FeatureItem icon={Icons.shield} title="Bezkonkurencyjność" description="Najwyższa klasa energetyczna A+++. Dofinansowanie z funduszy unijnych. Stabilna temperatura gruntu." />
@@ -37,8 +36,8 @@ export default function PompyPage() {
                             </div>
                             <div>
                                 <ImgPlaceholder label="Schemat gruntowej pompy ciepła" height={400} style={{ borderRadius: 16, marginBottom: 24 }} />
-                                <div style={{ background: COLORS.offWhite, borderRadius: 16, padding: 28 }}>
-                                    <h4 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: COLORS.navy, marginBottom: 12 }}>Wymogi prawne (powyżej 30m):</h4>
+                                <div className="bg-off-white rounded-2xl p-7">
+                                    <h4 className="font-heading font-bold text-navy mb-3">Wymogi prawne (powyżej 30m):</h4>
                                     <CheckList items={[
                                         "Projekt robót geologicznych",
                                         "Zgłoszenie do administracji geologicznej",
@@ -51,18 +50,15 @@ export default function PompyPage() {
                         </div>
                     </AnimatedSection>
                 </div>
-                <style>{`
-          @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
             </section>
 
             {/* Realizacje pomp */}
-            <section style={{ padding: "80px 24px", background: COLORS.offWhite }}>
-                <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <section className="py-20 px-6 bg-off-white">
+                <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
                         <div className="section-tag">Realizacje</div>
-                        <h2 className="section-title" style={{ fontSize: 32 }}>Wybrane realizacje odwiertów</h2>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20, marginTop: 32 }}>
+                        <h2 className="section-title !text-[32px]">Wybrane realizacje odwiertów</h2>
+                        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5 mt-8">
                             {[
                                 { loc: "Chęciny", desc: "76 otworów × 120m — Europejskie Centrum Edukacji Geologicznej", km: "9,1 km" },
                                 { loc: "Zagnańsk", desc: "49 otworów × 100m — Zespół Szkoły Podstawowej i Hala", km: "4,9 km" },
@@ -76,13 +72,10 @@ export default function PompyPage() {
                                 { loc: "Tarnów", desc: "12 otworów × 100m — Budynek mieszkalny wielorodzinny", km: "1,2 km" },
                                 { loc: "Baćkowice", desc: "5 otworów × 195m — Budynek wielofunkcyjny Urzędu Gminy", km: "0,9 km" },
                             ].map((item, i) => (
-                                <div key={i} style={{
-                                    background: "white", borderRadius: 14, padding: 24,
-                                    border: "1px solid rgba(0,0,0,0.06)",
-                                }}>
-                                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 18, color: COLORS.navy, marginBottom: 8 }}>{item.loc}</div>
-                                    <p style={{ color: COLORS.gray, fontSize: 14, lineHeight: 1.6, marginBottom: 12 }}>{item.desc}</p>
-                                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: COLORS.accent, fontSize: 15 }}>{item.km} łącznie</div>
+                                <div key={i} className="bg-white rounded-[14px] p-6 border border-black/6">
+                                    <div className="font-heading font-extrabold text-lg text-navy mb-2">{item.loc}</div>
+                                    <p className="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>
+                                    <div className="font-heading font-bold text-accent text-[15px]">{item.km} łącznie</div>
                                 </div>
                             ))}
                         </div>
@@ -91,13 +84,13 @@ export default function PompyPage() {
             </section>
 
             {/* Współpraca */}
-            <section style={{ padding: "60px 24px", background: "white" }}>
-                <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+            <section className="py-15 px-6 bg-white">
+                <div className="max-w-[900px] mx-auto text-center">
                     <AnimatedSection>
-                        <p style={{ color: COLORS.gray, fontSize: 16, lineHeight: 1.8 }}>
-                            Jesteśmy członkiem <strong style={{ color: COLORS.navy }}>PORT PC</strong> — Polskiej Organizacji Rozwoju Pomp Ciepła.
-                            Współpracujemy z producentem gruntowych pomp ciepła <strong style={{ color: COLORS.navy }}>STIEBEL ELTRON</strong>.
-                            Wykonujemy testy TRT we współpracy z <strong style={{ color: COLORS.navy }}>AGH</strong>.
+                        <p className="text-gray-500 text-base leading-relaxed">
+                            Jesteśmy członkiem <strong className="text-navy">PORT PC</strong> — Polskiej Organizacji Rozwoju Pomp Ciepła.
+                            Współpracujemy z producentem gruntowych pomp ciepła <strong className="text-navy">STIEBEL ELTRON</strong>.
+                            Wykonujemy testy TRT we współpracy z <strong className="text-navy">AGH</strong>.
                         </p>
                     </AnimatedSection>
                 </div>

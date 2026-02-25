@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { COLORS } from "../data/content.js";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
@@ -20,16 +19,16 @@ export default function PiezometryPage() {
             </Helmet>
             <PageHero title="Piezometry obserwacyjne" subtitle="Otwory hydrogeologiczne badawcze służące do monitoringu wód podziemnych — pomiar poziomu zwierciadła wody i analiza zanieczyszczeń." icon={Icons.gauge} />
 
-            <section style={{ padding: "80px 24px", background: "white" }}>
-                <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <section className="py-20 px-6 bg-white">
+                <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60 }} className="content-grid">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
                             <div>
-                                <h2 className="section-title" style={{ fontSize: 32 }}>Monitoring wód podziemnych</h2>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 24 }}>
+                                <h2 className="section-title !text-[32px]">Monitoring wód podziemnych</h2>
+                                <p className="text-gray-500 leading-relaxed text-base mb-6">
                                     Piezometr to małośrednicowy otwór hydrogeologiczny służący do pomiaru głębokości zwierciadła wody oraz zanieczyszczeń wód podziemnych. W odróżnieniu od studni, nie zabudowuje się w nich pomp — służą jedynie do okresowego pobierania próbek wody.
                                 </p>
-                                <p style={{ color: COLORS.gray, lineHeight: 1.8, fontSize: 16, marginBottom: 28 }}>
+                                <p className="text-gray-500 leading-relaxed text-base mb-7">
                                     Wszelkie obiekty, których funkcjonowanie może powodować zanieczyszczenie wód podziemnych, powinny wyposażyć swój teren w punkty obserwacyjne. Piezometry stanowią uzupełnienie systemu monitoringu służącego kontroli odwodnienia i zasięgu leja depresji.
                                 </p>
                                 <CheckList items={[
@@ -43,9 +42,9 @@ export default function PiezometryPage() {
                             </div>
                             <div>
                                 <ImgPlaceholder label="Pobór próbek z piezometru" height={400} style={{ borderRadius: 16, marginBottom: 24 }} />
-                                <div style={{ background: COLORS.offWhite, borderRadius: 16, padding: 28 }}>
-                                    <h4 style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, color: COLORS.navy, marginBottom: 12 }}>Kto potrzebuje piezometrów?</h4>
-                                    <p style={{ color: COLORS.gray, lineHeight: 1.7, fontSize: 15 }}>
+                                <div className="bg-off-white rounded-2xl p-7">
+                                    <h4 className="font-heading font-bold text-navy mb-3">Kto potrzebuje piezometrów?</h4>
+                                    <p className="text-gray-500 leading-relaxed text-[15px]">
                                         Zakłady przemysłowe, składowiska odpadów, kopalnie, stacje paliw i inne obiekty mogące wpływać na stan wód podziemnych.
                                     </p>
                                 </div>
@@ -53,9 +52,6 @@ export default function PiezometryPage() {
                         </div>
                     </AnimatedSection>
                 </div>
-                <style>{`
-          @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
             </section>
         </div>
     );
