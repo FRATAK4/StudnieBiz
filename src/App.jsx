@@ -10,6 +10,7 @@ import PiezometryPage from "./pages/PiezometryPage.jsx";
 import RealizacjePage from "./pages/RealizacjePage.jsx";
 import ONasPage from "./pages/ONasPage.jsx";
 import KontaktPage from "./pages/KontaktPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import "./styles/global.css";
 
 function ScrollToTop() {
@@ -35,7 +36,7 @@ export default function App() {
                     <Route path="/realizacje" element={<RealizacjePage />} />
                     <Route path="/o-nas" element={<ONasPage />} />
                     <Route path="/kontakt" element={<KontaktPage />} />
-                    <Route path="*" element={<HomePage />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </main>
             <Footer />
