@@ -8,11 +8,12 @@ Strona ma charakter prezentacyjno-ofertowy (brochure site) z formularzem kontakt
 
 ## Tech Stack
 
-- **Framework**: React 18 + Vite
-- **Routing**: react-router-dom (BrowserRouter + Routes)
-- **Stylowanie**: CSS-in-JS (inline styles + globalny blok `<style>`)
+- **Framework**: React 19 + Vite 7
+- **Routing**: react-router-dom v7 (BrowserRouter + Routes)
+- **Stylowanie**: Tailwind CSS 4 (utility-first + własne zmienne w `@theme`)
+- **SEO**: react-helmet-async (dynamiczne tagi `<head>` na każdej podstronie)
 - **Fonty**: Google Fonts — Outfit (nagłówki), DM Sans (body)
-- **Ikony**: Inline SVG (ręczne komponenty w obiekcie `Icons`)
+- **Ikony**: Inline SVG (ręczne komponenty w `Icons.jsx`)
 - **Animacje**: CSS @keyframes + IntersectionObserver (komponent `AnimatedSection`)
 - **Budowanie**: Vite (`npm run build` → folder `dist/`)
 
@@ -27,81 +28,90 @@ npm run preview      # Podgląd buildu produkcyjnego
 
 ## Struktura plików
 
-Struktura po refaktorze:
-
 ```
-src/
-├── App.jsx                    # Główny komponent z routingiem
-├── main.jsx                   # Entry point (ReactDOM.createRoot)
-├── styles/
-│   └── global.css             # Globalne style, animacje, zmienne CSS
-├── components/
-│   ├── Navigation.jsx         # Nawigacja górna (desktop + mobile)
-│   ├── Footer.jsx             # Stopka
-│   ├── AnimatedSection.jsx    # Wrapper z IntersectionObserver
-│   ├── StatCounter.jsx        # Animowany licznik statystyk
-│   ├── ServiceCard.jsx        # Karta usługi (na stronie głównej)
-│   ├── FeatureItem.jsx        # Element z ikoną + tytuł + opis
-│   ├── CheckList.jsx          # Lista z checkmarkami
-│   ├── PageHero.jsx           # Hero sekcja podstron (tytuł + opis)
-│   └── ImgPlaceholder.jsx     # Placeholder na zdjęcia (do zamiany na <img>)
-├── pages/
-│   ├── HomePage.jsx           # Strona główna
-│   ├── StudniePage.jsx        # Studnie głębinowe
-│   ├── PompyPage.jsx          # Pompy ciepła
-│   ├── OdwiertyPage.jsx       # Odwierty poszukiwawcze
-│   ├── PiezometryPage.jsx     # Piezometry obserwacyjne
-│   ├── RealizacjePage.jsx     # Realizacje i referencje
-│   ├── ONasPage.jsx           # O firmie, certyfikaty, materiały
-│   └── KontaktPage.jsx        # Kontakt i formularz
-├── data/
-│   └── content.js             # Teksty, listy realizacji, dane kontaktowe
-├── icons/
-│   └── Icons.jsx              # Obiekt z komponentami SVG ikon
-└── assets/
-    └── images/                # Zdjęcia firmy, realizacji, sprzętu
+studnie-biz/
+├── public/
+│   ├── favicon.svg                # Placeholder logo "S" (zastąpić logo firmy)
+│   ├── robots.txt                 # Konfiguracja robotów SEO
+│   └── sitemap.xml                # Mapa strony (8 podstron)
+├── src/
+│   ├── App.jsx                    # Główny komponent z routingiem + ScrollToTop
+│   ├── main.jsx                   # Entry point (HelmetProvider + BrowserRouter)
+│   ├── styles/
+│   │   └── global.css             # Import Tailwind, @theme, @keyframes, klasy pomocnicze
+│   ├── components/
+│   │   ├── Navigation.jsx         # Nawigacja górna (desktop + hamburger mobile)
+│   │   ├── Footer.jsx             # Stopka z linkami i danymi kontaktowymi
+│   │   ├── AnimatedSection.jsx    # Wrapper z IntersectionObserver (fade-in on scroll)
+│   │   ├── StatCounter.jsx        # Animowany licznik statystyk
+│   │   ├── ServiceCard.jsx        # Karta usługi (na stronie głównej)
+│   │   ├── FeatureItem.jsx        # Element z ikoną + tytuł + opis
+│   │   ├── CheckList.jsx          # Lista z checkmarkami
+│   │   ├── PageHero.jsx           # Hero sekcja podstron (ikona, tytuł, opis)
+│   │   └── ImgPlaceholder.jsx     # Gradient placeholder na zdjęcia (zastąpić <img>)
+│   ├── pages/
+│   │   ├── HomePage.jsx           # Strona główna (hero, statystyki, usługi, CTA)
+│   │   ├── StudniePage.jsx        # Studnie głębinowe (wiercenie, kamerowanie, renowacja)
+│   │   ├── PompyPage.jsx          # Pompy ciepła (odwierty geotermalne, wymogi, realizacje)
+│   │   ├── OdwiertyPage.jsx       # Odwierty poszukiwawcze
+│   │   ├── PiezometryPage.jsx     # Piezometry obserwacyjne
+│   │   ├── RealizacjePage.jsx     # Realizacje (mapa miast, referencje klientów)
+│   │   ├── ONasPage.jsx           # O firmie (historia, certyfikat DVGW, partnerzy)
+│   │   ├── KontaktPage.jsx        # Kontakt (dane, formularz) — formularz bez backendu
+│   │   └── NotFoundPage.jsx       # Strona 404 (noindex)
+│   ├── data/                      # PUSTY — treść zakodowana na sztywno w komponentach
+│   ├── icons/
+│   │   └── Icons.jsx              # ~20 komponentów SVG (water, drill, phone, mail…)
+│   └── assets/
+│       └── images/                # PUSTY — czekamy na zdjęcia od klienta
+├── dist/                          # Build produkcyjny (gitignored)
+├── index.html                     # HTML entry point (JSON-LD LocalBusiness, OG tagi)
+├── package.json
+├── vite.config.js
+├── eslint.config.js
+└── CLAUDE.md
 ```
 
 ## Podstrony (routing)
 
 | Ścieżka | Komponent | Opis |
 |---|---|---|
-| `/` | HomePage | Hero, statystyki, usługi, dlaczego my, CTA |
+| `/` | HomePage | Hero, statystyki, 6 usług, dlaczego my, CTA |
 | `/studnie` | StudniePage | Budowa studni, kamerowanie, renowacja, likwidacja |
 | `/pompy-ciepla` | PompyPage | Gruntowe pompy ciepła, wymogi, realizacje odwiertów |
 | `/odwierty` | OdwiertyPage | Odwierty poszukiwawcze, minimalizacja ryzyka |
 | `/piezometry` | PiezometryPage | Monitoring wód podziemnych |
-| `/realizacje` | RealizacjePage | Mapa realizacji, referencje klientów |
-| `/o-nas` | ONasPage | Historia, certyfikat DVGW BAU, materiały, zespół |
-| `/kontakt` | KontaktPage | Dane firmy, formularz kontaktowy |
+| `/realizacje` | RealizacjePage | Mapa realizacji (30+ miast), referencje klientów |
+| `/o-nas` | ONasPage | Historia, certyfikat DVGW BAU, partnerzy, harmonogram |
+| `/kontakt` | KontaktPage | Dane firmy, formularz kontaktowy (bez backendu) |
+| `*` | NotFoundPage | Strona 404 |
 
 ## Konwencje kodowania
 
 - Komponenty: functional components z hooks, PascalCase
 - Pliki: PascalCase dla komponentów (`ServiceCard.jsx`), camelCase dla utilsów
-- Style: docelowo migracja z inline styles na CSS Modules lub Tailwind
+- Stylowanie: Tailwind CSS 4 — klasy utility + własne zmienne w `global.css`
 - Język treści: **polski** — cała strona jest po polsku
-- Brak TypeScript (na razie) — czysty JSX
+- Brak TypeScript — czysty JSX
 - Eksporty: `export default` dla komponentów stron, named exports dla mniejszych komponentów
+- SEO: każda strona deklaruje własne tagi przez `<Helmet>` z `react-helmet-async`
 
-## Paleta kolorów (zmienne CSS)
+## Paleta kolorów (zmienne Tailwind `@theme`)
 
 ```
---navy:       #0a1628    (tło ciemne, nawigacja)
---deep-blue:  #0d2847    (hero, gradienty)
---blue:       #1a6fb5    (kolor główny, linki, ikony)
---light-blue: #3d9be9    (akcenty jasne)
---accent:     #00b4d8    (CTA, podświetlenia, statystyki)
---water:      #48cae4    (dekoracyjny — motyw wody)
---white:      #ffffff
---off-white:  #f0f4f8    (tła sekcji)
---gray:       #6b7280    (tekst pomocniczy)
---dark:       #111827    (tekst główny)
+--color-navy:       #0a1628    (tło ciemne, nawigacja)
+--color-deep-blue:  #0d2847    (hero, gradienty)
+--color-blue:       #1a6fb5    (kolor główny, linki, ikony)
+--color-light-blue: #3d9be9    (akcenty jasne)
+--color-accent:     #00b4d8    (CTA, podświetlenia, statystyki)
+--color-water:      #48cae4    (dekoracyjny — motyw wody)
+--color-off-white:  #f0f4f8    (tła sekcji)
+--color-light-gray: #e5e7eb    (obramowania, separatory)
 ```
 
-Kolorystyka nawiązuje do wody i marki studnie.biz. Może ulec zmianie — kolorystyka nie jest jeszcze ostatecznie zatwierdzona.
+Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdzona przez klienta.**
 
-## Dane firmy (do użycia w treściach)
+## Dane firmy
 
 - **Nazwa**: Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o.
 - **Adres**: ul. Spacerowa 5, 25-026 Kielce
@@ -118,16 +128,58 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. Może ulec zmianie — kolor
 - **Partner**: STIEBEL ELTRON (pompy ciepła)
 - **Współpraca**: AGH Kraków (testy TRT)
 - **Referencje klientów**: Zbyszko, Życkowiacz, Jamar, Sokpol, Hortex, INDUSTRIA, Andrzej Stępień LASPOL MAX
+- **Geo**: 50.8661, 20.6286 (Kielce — używane w JSON-LD)
 
-## Znane problemy i TODO
+## SEO (stan obecny)
 
-- [x] Cały kod w jednym pliku `App.jsx` — wymaga rozbicia na komponenty
-- [x] Routing stanowy (useState) — zamienić na react-router-dom z prawdziwymi URL-ami
-- [ ] Placeholdery zamiast zdjęć — wymienić na prawdziwe fotografie firmy
-- [x] Brak SEO (meta tagi, Open Graph, structured data)
-- [ ] Formularz kontaktowy nie wysyła maili — potrzebny backend lub usługa typu Formspree
-- [ ] Brak wersji mobilnej galerii zdjęć
-- [ ] Kolorystyka do ostatecznego zatwierdzenia przez klienta
-- [ ] Brak mapy Google na stronie kontaktu
-- [ ] Brak cookie banner / polityki prywatności
-- [ ] Inline styles → migracja na CSS Modules lub Tailwind CSS
+- `index.html`: LocalBusiness JSON-LD schema, Open Graph, canonical
+- Każda podstrona: `<Helmet>` z `title`, `description`, OG tags, canonical
+- `public/robots.txt`: Allow all + odniesienie do sitemap
+- `public/sitemap.xml`: 8 URL-i z priorytetami (0.5–1.0)
+- `NotFoundPage.jsx`: `<meta name="robots" content="noindex" />`
+
+## TODO — lista zadań
+
+### Od klienta (czekamy na materiały)
+
+- [ ] **Zdjęcia firmy** — wymienić wszystkie `<ImgPlaceholder>` na prawdziwe `<img>` (15+ miejsc w kodzie); zdjęcia sprzętu, pracowników, realizacji, wiertni
+- [ ] **Logo firmy** — zastąpić placeholder `favicon.svg` (gradient "S") prawdziwym logo; użyć jako favicon + logo w nawigacji i stopce
+- [ ] **Nowe formularze (2 szt.)** — klient dostarczy strukturę; zaimplementować jako nowe komponenty lub podstrony
+- [ ] **Konsultacja z klientem** — wstępna prezentacja strony, zebranie uwag, akceptacja: kolorystyki, treści, układu, brakujących sekcji
+
+### Frontend (do zrobienia w kodzie)
+
+- [ ] **Formularz kontaktowy — wysyłanie maili** — podpiąć Formspree, EmailJS lub własny backend (Node/PHP); formularz w `KontaktPage.jsx` ma UI, ale nie wysyła danych
+- [ ] **Galeria zdjęć** — po otrzymaniu zdjęć: komponent galerii z lightboxem (np. yet-another-react-lightbox); wersja mobilna
+- [ ] **Mapa Google** — osadzić Google Maps iframe na stronie kontaktu (ul. Spacerowa 5, Kielce)
+- [ ] **Cookie banner / polityka prywatności** — wymagane prawnie (RODO); dodać baner cookie + podstronę `/polityka-prywatnosci`
+- [ ] **Centralizacja treści** — przenieść zakodowane na sztywno dane (listy realizacji, dane kontaktowe) do `src/data/content.js`
+- [ ] **Weryfikacja responsywności** — przetestować layout na urządzeniach mobilnych (szczególnie nawigacja, tabele, karty)
+- [ ] **Testy cross-browser** — Chrome, Firefox, Safari, Edge
+
+### Wdrożenie (deployment)
+
+- [ ] **Wybór hostingu** — ustalić z klientem: VPS, shared hosting, Netlify/Vercel, lub istniejący hosting www.studnie.biz
+- [ ] **Konfiguracja serwera** — dla BrowserRouter wymagany fallback do `index.html` (np. reguła `_redirects` na Netlify lub `.htaccess` na Apache)
+- [ ] **Domena i SSL** — powiązać domenę studnie.biz z serwerem + certyfikat HTTPS
+- [ ] **Aktualizacja sitemap.xml** — zmienić daty `<lastmod>` przed wdrożeniem
+- [ ] **Google Search Console** — dodać właściwość, zweryfikować domenę, przesłać sitemap
+- [ ] **Analytics** — rozważyć dodanie Google Analytics 4 lub Plausible (wymaga cookie banner)
+
+### Opcjonalne / przyszłościowe
+
+- [ ] **Kolorystyka** — ostateczne zatwierdzenie przez klienta (paleta może ulec zmianie)
+- [ ] **Linki social media** — stopka ma placeholder dla Facebooka; dodać prawdziwy link do profilu
+- [ ] **TypeScript** — opcjonalna migracja dla lepszej utrzymywalności
+- [ ] **Testy wydajności** — Lighthouse / Core Web Vitals po wdrożeniu
+
+### Ukończone
+
+- [x] Rozbicie monolitycznego `App.jsx` na komponenty i podstrony
+- [x] Routing z react-router-dom (prawdziwe URL-e, ScrollToTop)
+- [x] SEO: meta tagi, Open Graph, JSON-LD LocalBusiness
+- [x] Plik `robots.txt` i `sitemap.xml`
+- [x] Strona 404 (`NotFoundPage.jsx`)
+- [x] Migracja inline styles → Tailwind CSS 4
+- [x] Favicon SVG (placeholder — do zastąpienia logo firmy)
+- [x] react-helmet-async dla dynamicznych tagów `<head>`
