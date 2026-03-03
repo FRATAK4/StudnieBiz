@@ -62,7 +62,6 @@ export function Footer() {
                                 { icon: Icons.mapPin, text: company.address },
                                 { icon: Icons.phone, text: `${company.phone.mobile1} / ${company.phone.landline}` },
                                 { icon: Icons.mail, text: company.email },
-                                { icon: Icons.globe, text: company.website },
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-2.5 text-white/60 text-sm">
                                     {item.icon} {item.text}

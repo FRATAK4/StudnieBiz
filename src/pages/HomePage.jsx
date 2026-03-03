@@ -15,7 +15,12 @@ export default function HomePage() {
 
     const go = (path) => {
         navigate(path);
-        if (!path.includes("#")) {
+        if (path.includes("#")) {
+            const id = path.split("#")[1];
+            setTimeout(() => {
+                document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+            }, 150);
+        } else {
             window.scrollTo(0, 0);
         }
     };
@@ -63,7 +68,10 @@ export default function HomePage() {
 
                             <div className="animate-in animate-delay-4 flex gap-4 flex-wrap">
                                 <button className="btn-primary" onClick={() => go("/studnie#formularz")}>
-                                    Bezpłatna wycena {Icons.arrowRight}
+                                    {Icons.water} Wycena studni
+                                </button>
+                                <button className="btn-primary" onClick={() => go("/pompy-ciepla#formularz")}>
+                                    {Icons.flame} Wycena odwiertów
                                 </button>
                                 <button className="btn-outline" onClick={() => go("/realizacje")}>
                                     Nasze realizacje

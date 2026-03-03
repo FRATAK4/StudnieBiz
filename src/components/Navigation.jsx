@@ -48,7 +48,7 @@ export function Navigation() {
                             studnie<span className="text-accent">.biz</span>
                         </div>
                         <div className="text-[10px] text-white/50 tracking-[1.5px] uppercase font-semibold">
-                            studnie · głębinowe · pompy ciepła
+                            studnie głębinowe · pompy ciepła
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,6 @@ export default function KontaktPage() {
                                     { icon: Icons.phone, label: "Telefon", value: `${company.phone.mobile1} / ${company.phone.mobile2}` },
                                     { icon: Icons.phone, label: "Telefon stacjonarny", value: company.phone.landline },
                                     { icon: Icons.mail, label: "Email", value: company.email },
-                                    { icon: Icons.globe, label: "Strona www", value: company.website },
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4 items-start">
                                         <div className="w-12 h-12 rounded-xl shrink-0 bg-gradient-to-br from-blue/10 to-accent/10 flex items-center justify-center text-blue">
