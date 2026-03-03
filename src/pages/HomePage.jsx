@@ -5,7 +5,8 @@ import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { StatCounter } from "../components/StatCounter.jsx";
 import { ServiceCard } from "../components/ServiceCard.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
-import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
+import zespolGrupowe from "../assets/images/ogolne/zespol-grupowe.jpg";
+import zespolWiertnica from "../assets/images/ogolne/zespol-przy-wiertnicy.jpg";
 
 export default function HomePage() {
     const navigate = useNavigate();
@@ -70,7 +71,7 @@ export default function HomePage() {
 
                         <div className="animate-in animate-delay-5 hidden lg:block">
                             <div className="relative">
-                                <ImgPlaceholder label="Zdjęcie wiertnicy w terenie" height={480} style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,0.08)" }} />
+                                <img src={zespolGrupowe} alt="Zespół pracowników Zakładu Usług Studziennych przed wiertnicą" className="rounded-[20px] border border-white/8 w-full h-[480px] object-cover" />
                                 {/* Floating stat card */}
                                 <div className="glass absolute -bottom-5 -left-5 p-5 px-6 rounded-2xl animate-float">
                                     <div className="font-heading font-black text-[32px] text-accent">60+</div>
@@ -165,7 +166,7 @@ export default function HomePage() {
                 <div className="max-w-[1200px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                         <AnimatedSection>
-                            <ImgPlaceholder label="Zespół wiertniczy przy wiertnicy" height={500} style={{ borderRadius: 20 }} />
+                            <img src={zespolWiertnica} alt="Trzech pracowników w kamizelkach odblaskowych przy wiertnicy gąsienicowej" loading="lazy" className="rounded-[20px] w-full" />
                         </AnimatedSection>
                         <AnimatedSection>
                             <div className="section-tag">Dlaczego my?</div>

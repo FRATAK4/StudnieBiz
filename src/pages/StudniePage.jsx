@@ -3,9 +3,11 @@ import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
-import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
 import { InquiryForm } from "../components/InquiryForm.jsx";
 import { PageHero } from "../components/PageHero.jsx";
+import wiercenieOgrod from "../assets/images/studnie/wiercenie-ogrod.jpg";
+import wiercenieLas from "../assets/images/studnie/wiercenie-las-jesien.jpg";
+import kameraOtworowa from "../assets/images/studnie/kamera-otworowa.jpg";
 
 export default function StudniePage() {
     return (
@@ -47,10 +49,7 @@ export default function StudniePage() {
                                     "Pompowania oczyszczające i pomiarowe",
                                     "Analizy fizykochemiczne i bakteriologiczne wody",
                                 ]} />
-                            </div>
-                            <div>
-                                <ImgPlaceholder label="Wiercenie na sprężone powietrze" height={400} style={{ borderRadius: 16, marginBottom: 24 }} />
-                                <div className="bg-gradient-to-br from-blue/8 to-accent/8 rounded-2xl p-7 mb-6 border border-blue/12">
+                                <div className="bg-gradient-to-br from-blue/8 to-accent/8 rounded-2xl p-7 mt-7 mb-6 border border-blue/12">
                                     <h4 className="font-heading font-bold text-base text-navy mb-2">
                                         Wiercenie w zagospodarowanym ogrodzie?
                                     </h4>
@@ -69,6 +68,9 @@ export default function StudniePage() {
                                         "Przemysłu (zakłady mleczarskie, rozlewnie wód)",
                                     ]} />
                                 </div>
+                            </div>
+                            <div>
+                                <img src={wiercenieOgrod} alt="Wiercenie studni głębinowej na terenie ogrodu przydomowego" loading="lazy" className="rounded-2xl w-full" />
                             </div>
                         </div>
                     </AnimatedSection>
@@ -126,9 +128,9 @@ export default function StudniePage() {
                                 <FeatureItem icon={Icons.layers} title="Likwidacja" description="Profesjonalna likwidacja studni, które nie nadają się już do renowacji. Pełna dokumentacja." />
                                 <FeatureItem icon={Icons.shield} title="Prace ratunkowe" description="Usunięcie ze studni zerwanej pompy głębinowej oraz innych zatopionych w otworze elementów (rurociąg, lina stalowa)." />
                             </div>
-                            <div>
-                                <ImgPlaceholder label="Inspekcja TV studni" height={300} style={{ borderRadius: 16, marginBottom: 16 }} />
-                                <ImgPlaceholder label="Prace renowacyjne" height={200} style={{ borderRadius: 16 }} />
+                            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory rounded-2xl">
+                                <img src={wiercenieLas} alt="Wiercenie studni w lesie jesienią — wiertnica w terenie" loading="lazy" className="rounded-2xl snap-center shrink-0 w-full object-cover" />
+                                <img src={kameraOtworowa} alt="Kamera otworowa do inspekcji TV studni głębinowej" loading="lazy" className="rounded-2xl snap-center shrink-0 w-full object-cover" />
                             </div>
                         </div>
                     </AnimatedSection>

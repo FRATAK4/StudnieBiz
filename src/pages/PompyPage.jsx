@@ -3,9 +3,9 @@ import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
-import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
 import { InquiryForm } from "../components/InquiryForm.jsx";
 import { PageHero } from "../components/PageHero.jsx";
+import sondyMontaz from "../assets/images/pompy/sondy-geotermalne-montaz.jpg";
 
 export default function PompyPage() {
     return (
@@ -38,10 +38,7 @@ export default function PompyPage() {
                                 <FeatureItem icon={Icons.shield} title="Bezkonkurencyjność" description="Najwyższa klasa energetyczna A+++. Dofinansowanie z funduszy unijnych. Stabilna temperatura gruntu." />
                                 <FeatureItem icon={Icons.award} title="Niezawodność" description="Pompa ciepła jest sercem instalacji. Żywotność 30 lat. Brak niebezpieczeństwa wybuchu." />
                                 <FeatureItem icon={Icons.home} title="Komfort" description="Bezobsługowe użytkowanie. Brak hałasu, brak jednostki zewnętrznej, brak specjalnego pomieszczenia." />
-                            </div>
-                            <div>
-                                <ImgPlaceholder label="Schemat gruntowej pompy ciepła" height={400} style={{ borderRadius: 16, marginBottom: 24 }} />
-                                <div className="bg-off-white rounded-2xl p-7">
+                                <div className="bg-off-white rounded-2xl p-7 mt-7">
                                     <h4 className="font-heading font-bold text-navy mb-3">Wymogi prawne (powyżej 30m):</h4>
                                     <CheckList items={[
                                         "Projekt robót geologicznych",
@@ -51,6 +48,9 @@ export default function PompyPage() {
                                         "Dokumentacja powykonawcza",
                                     ]} />
                                 </div>
+                            </div>
+                            <div>
+                                <img src={sondyMontaz} alt="Montaż sond geotermalnych — pracownicy prowadzą rury do otworu wiertniczego" loading="lazy" className="rounded-2xl w-full" />
                             </div>
                         </div>
                     </AnimatedSection>

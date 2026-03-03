@@ -47,8 +47,9 @@ studnie-biz/
 │   │   ├── ServiceCard.jsx        # Karta usługi (na stronie głównej)
 │   │   ├── FeatureItem.jsx        # Element z ikoną + tytuł + opis
 │   │   ├── CheckList.jsx          # Lista z checkmarkami
-│   │   ├── PageHero.jsx           # Hero sekcja podstron (ikona, tytuł, opis)
-│   │   └── ImgPlaceholder.jsx     # Gradient placeholder na zdjęcia (zastąpić <img>)
+│   │   ├── PageHero.jsx           # Hero sekcja podstron (ikona, tytuł, opis, opcjonalny CTA via children)
+│   │   ├── InquiryForm.jsx        # Formularz zapytania ofertowego (warianty: studnia / pompa)
+│   │   └── ImgPlaceholder.jsx     # Gradient placeholder na zdjęcia (używany już tylko na ONasPage)
 │   ├── pages/
 │   │   ├── HomePage.jsx           # Strona główna (hero, statystyki, usługi, CTA)
 │   │   ├── StudniePage.jsx        # Studnie głębinowe (wiercenie, kamerowanie, renowacja)
@@ -57,13 +58,16 @@ studnie-biz/
 │   │   ├── PiezometryPage.jsx     # Piezometry obserwacyjne
 │   │   ├── RealizacjePage.jsx     # Realizacje (mapa miast, referencje klientów)
 │   │   ├── ONasPage.jsx           # O firmie (historia, certyfikat DVGW, partnerzy)
-│   │   ├── KontaktPage.jsx        # Kontakt (dane, formularz) — formularz bez backendu
+│   │   ├── KontaktPage.jsx        # Kontakt (tylko dane kontaktowe, bez formularza)
 │   │   └── NotFoundPage.jsx       # Strona 404 (noindex)
 │   ├── data/                      # PUSTY — treść zakodowana na sztywno w komponentach
 │   ├── icons/
 │   │   └── Icons.jsx              # ~20 komponentów SVG (water, drill, phone, mail…)
 │   └── assets/
-│       └── images/                # PUSTY — czekamy na zdjęcia od klienta
+│       └── images/
+│           ├── ogolne/            # zespol-grupowe.jpg, zespol-przy-wiertnicy.jpg
+│           ├── studnie/           # 10 zdjęć (wiercenie, kamera, obudowy, wiertnice)
+│           └── pompy/             # 6 zdjęć (sondy, odwierty, wiertnice)
 ├── dist/                          # Build produkcyjny (gitignored)
 ├── index.html                     # HTML entry point (JSON-LD LocalBusiness, OG tagi)
 ├── package.json
@@ -142,7 +146,7 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 
 ### Od klienta (czekamy na materiały)
 
-- [ ] **Zdjęcia firmy** — wymienić wszystkie `<ImgPlaceholder>` na prawdziwe `<img>` (15+ miejsc w kodzie); zdjęcia sprzętu, pracowników, realizacji, wiertni
+- [x] **Zdjęcia firmy** — 18 zdjęć dostarczonych, zoptymalizowanych i umieszczonych na HomePage, StudniePage, PompyPage; `ImgPlaceholder` zostaje tylko na ONasPage (brak zdjęć historycznych/certyfikatów)
 - [ ] **Logo firmy** — zastąpić placeholder `favicon.svg` (gradient "S") prawdziwym logo; użyć jako favicon + logo w nawigacji i stopce
 - [x] **Nowe formularze (2 szt.)** — struktura dostarczona w `docs/formularz_studnia_glebinowa.md` i `docs/formularz_pompa_ciepla.md`
 - [ ] **Konsultacja z klientem** — wstępna prezentacja strony, zebranie uwag, akceptacja: kolorystyki, treści, układu, brakujących sekcji
@@ -152,7 +156,7 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 
 ### Frontend (do zrobienia w kodzie)
 
-- [ ] **Formularze — UI** — zaimplementować formularz studni na `/studnie` i formularz pompy na `/pompy-ciepla`; usunąć formularz z `/kontakt`
+- [x] **Formularze — UI** — formularz studni na `/studnie`, formularz pompy na `/pompy-ciepla`; formularz z `/kontakt` usunięty; CTA w hero podstron i na stronie głównej
 - [ ] **Formularze — wysyłanie** — podpiąć Formspree (lub inny serwis po konsultacji z klientem); oba formularze + endpoint
 - [ ] **Galeria zdjęć** — po otrzymaniu zdjęć: komponent galerii z lightboxem (np. yet-another-react-lightbox); wersja mobilna
 - [ ] **Mapa Google** — osadzić Google Maps iframe na stronie kontaktu (ul. Spacerowa 5, Kielce)
@@ -187,3 +191,6 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - [x] Migracja inline styles → Tailwind CSS 4
 - [x] Favicon SVG (placeholder — do zastąpienia logo firmy)
 - [x] react-helmet-async dla dynamicznych tagów `<head>`
+- [x] Formularze zapytań ofertowych (studnia + pompa ciepła) z CTA w hero i na stronie głównej
+- [x] Prawdziwe zdjęcia na HomePage, StudniePage, PompyPage (18 zdjęć, zoptymalizowane)
+- [x] Usunięcie placeholderów zdjęć z OdwiertyPage i PiezometryPage
