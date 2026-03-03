@@ -60,7 +60,8 @@ studnie-biz/
 │   │   ├── ONasPage.jsx           # O firmie (historia, certyfikat DVGW, partnerzy)
 │   │   ├── KontaktPage.jsx        # Kontakt (tylko dane kontaktowe, bez formularza)
 │   │   └── NotFoundPage.jsx       # Strona 404 (noindex)
-│   ├── data/                      # PUSTY — treść zakodowana na sztywno w komponentach
+│   ├── data/
+│   │   └── content.js             # Centralne dane firmy (company, stats, references, locations, heatPumpProjects)
 │   ├── icons/
 │   │   └── Icons.jsx              # ~20 komponentów SVG (water, drill, phone, mail…)
 │   └── assets/
@@ -159,9 +160,9 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - [x] **Formularze — UI** — formularz studni na `/studnie`, formularz pompy na `/pompy-ciepla`; formularz z `/kontakt` usunięty; CTA w hero podstron i na stronie głównej
 - [ ] **Formularze — wysyłanie** — podpiąć Formspree (lub inny serwis po konsultacji z klientem); oba formularze + endpoint
 - [ ] **Galeria zdjęć** — po otrzymaniu zdjęć: komponent galerii z lightboxem (np. yet-another-react-lightbox); wersja mobilna
-- [ ] **Mapa Google** — osadzić Google Maps iframe na stronie kontaktu (ul. Spacerowa 5, Kielce)
+- [x] **Mapa Google** — Google Maps iframe na stronie `/kontakt` (ul. Spacerowa 5, Kielce)
 - [ ] **Cookie banner / polityka prywatności** — wymagane prawnie (RODO); dodać baner cookie + podstronę `/polityka-prywatnosci`
-- [ ] **Centralizacja treści** — przenieść zakodowane na sztywno dane (listy realizacji, dane kontaktowe) do `src/data/content.js`
+- [x] **Centralizacja treści** — dane firmy, statystyki, referencje, lokalizacje w `src/data/content.js`; dynamiczne obliczanie lat doświadczenia
 - [ ] **Weryfikacja responsywności** — przetestować layout na urządzeniach mobilnych (szczególnie nawigacja, tabele, karty)
 - [ ] **Testy cross-browser** — Chrome, Firefox, Safari, Edge
 
@@ -194,3 +195,5 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - [x] Formularze zapytań ofertowych (studnia + pompa ciepła) z CTA w hero i na stronie głównej
 - [x] Prawdziwe zdjęcia na HomePage, StudniePage, PompyPage (18 zdjęć, zoptymalizowane)
 - [x] Usunięcie placeholderów zdjęć z OdwiertyPage i PiezometryPage
+- [x] Mapa Google na stronie kontaktu
+- [x] Centralizacja treści do `src/data/content.js` + naprawa niespójności lat doświadczenia
