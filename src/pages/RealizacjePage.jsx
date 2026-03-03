@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { PageHero } from "../components/PageHero.jsx";
+import { PolandMap } from "../components/PolandMap.jsx";
 import { stats, references, locations } from "../data/content.js";
 
 export default function RealizacjePage() {
@@ -29,13 +30,14 @@ export default function RealizacjePage() {
                             Nasze realizacje obejmują setki lokalizacji — od małych studni przy domach jednorodzinnych po dziesiątki otworów dla obiektów publicznych i przemysłowych.
                         </p>
 
-                        <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-3">
-                            {locations.map((loc, i) => (
-                                <div key={i} className="bg-off-white rounded-[10px] py-3.5 px-4 font-heading font-semibold text-sm text-navy text-center border border-black/4">
-                                    {loc}
-                                </div>
+                        <PolandMap locations={locations} />
+
+                        {/* Ukryta lista miast dla SEO */}
+                        <ul className="sr-only">
+                            {locations.map((loc) => (
+                                <li key={loc.name}>{loc.name}</li>
                             ))}
-                        </div>
+                        </ul>
                     </AnimatedSection>
                 </div>
             </section>

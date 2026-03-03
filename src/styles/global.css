@@ -217,6 +217,17 @@
   }
 }
 
+/* ── Leaflet map tooltip ── */
+.map-tooltip {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-light-gray);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-navy); }
