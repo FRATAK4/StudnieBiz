@@ -144,12 +144,16 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 
 - [ ] **Zdjęcia firmy** — wymienić wszystkie `<ImgPlaceholder>` na prawdziwe `<img>` (15+ miejsc w kodzie); zdjęcia sprzętu, pracowników, realizacji, wiertni
 - [ ] **Logo firmy** — zastąpić placeholder `favicon.svg` (gradient "S") prawdziwym logo; użyć jako favicon + logo w nawigacji i stopce
-- [ ] **Nowe formularze (2 szt.)** — klient dostarczy strukturę; zaimplementować jako nowe komponenty lub podstrony
+- [x] **Nowe formularze (2 szt.)** — struktura dostarczona w `docs/formularz_studnia_glebinowa.md` i `docs/formularz_pompa_ciepla.md`
 - [ ] **Konsultacja z klientem** — wstępna prezentacja strony, zebranie uwag, akceptacja: kolorystyki, treści, układu, brakujących sekcji
+- [ ] **PYTANIE DO KLIENTA: Strona /kontakt** — czy jedyną formą kontaktu mają być formularze na podstronach usług + numer telefonu, czy potrzebny jest też formularz ogólny na `/kontakt`? Obecnie formularz z `/kontakt` usunięty, strona pokazuje tylko dane kontaktowe
+- [ ] **PYTANIE DO KLIENTA: Wymagalność pól formularzy** — wszystkie pola ustawione jako wymagane; skonsultować, czy np. e-mail lub numer działki mogą być opcjonalne
+- [ ] **PYTANIE DO KLIENTA: Wysyłanie formularzy** — wybrać sposób dostarczania zgłoszeń (rekomendacja: Formspree — darmowy, bez backendu, maile na studnie1@gmail.com); klient musi podać docelowy adres e-mail na zgłoszenia
 
 ### Frontend (do zrobienia w kodzie)
 
-- [ ] **Formularz kontaktowy — wysyłanie maili** — podpiąć Formspree, EmailJS lub własny backend (Node/PHP); formularz w `KontaktPage.jsx` ma UI, ale nie wysyła danych
+- [ ] **Formularze — UI** — zaimplementować formularz studni na `/studnie` i formularz pompy na `/pompy-ciepla`; usunąć formularz z `/kontakt`
+- [ ] **Formularze — wysyłanie** — podpiąć Formspree (lub inny serwis po konsultacji z klientem); oba formularze + endpoint
 - [ ] **Galeria zdjęć** — po otrzymaniu zdjęć: komponent galerii z lightboxem (np. yet-another-react-lightbox); wersja mobilna
 - [ ] **Mapa Google** — osadzić Google Maps iframe na stronie kontaktu (ul. Spacerowa 5, Kielce)
 - [ ] **Cookie banner / polityka prywatności** — wymagane prawnie (RODO); dodać baner cookie + podstronę `/polityka-prywatnosci`

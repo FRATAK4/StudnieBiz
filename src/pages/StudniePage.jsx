@@ -4,6 +4,7 @@ import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
 import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
+import { InquiryForm } from "../components/InquiryForm.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 
 export default function StudniePage() {
@@ -18,7 +19,11 @@ export default function StudniePage() {
                 <meta property="og:url" content="https://studnie.biz/studnie" />
                 <link rel="canonical" href="https://studnie.biz/studnie" />
             </Helmet>
-            <PageHero title="Studnie głębinowe" subtitle="Wiercenie, budowa, renowacja i likwidacja studni głębinowych. Metoda udarowa na sprężone powietrze dla maksymalnej wydajności." icon={Icons.water} />
+            <PageHero title="Studnie głębinowe" subtitle="Wiercenie, budowa, renowacja i likwidacja studni głębinowych. Metoda udarowa na sprężone powietrze dla maksymalnej wydajności." icon={Icons.water}>
+                <a href="#formularz" className="btn-primary">
+                    Zamów wycenę {Icons.arrowRight}
+                </a>
+            </PageHero>
 
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-[1100px] mx-auto">
@@ -126,6 +131,22 @@ export default function StudniePage() {
                                 <ImgPlaceholder label="Prace renowacyjne" height={200} style={{ borderRadius: 16 }} />
                             </div>
                         </div>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            {/* Formularz */}
+            <section id="formularz" className="py-20 px-6 bg-white scroll-mt-24">
+                <div className="max-w-[600px] mx-auto">
+                    <AnimatedSection>
+                        <div className="text-center mb-10">
+                            <div className="section-tag">Zapytanie ofertowe</div>
+                            <h2 className="section-title !text-[32px]">Zamów wycenę studni</h2>
+                            <p className="text-gray-500 text-base leading-relaxed">
+                                Wypełnij formularz, a nasz dział techniczny skontaktuje się z Tobą w celu omówienia szczegółów.
+                            </p>
+                        </div>
+                        <InquiryForm variant="studnia" />
                     </AnimatedSection>
                 </div>
             </section>

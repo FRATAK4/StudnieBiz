@@ -1,4 +1,4 @@
-export function PageHero({ title, subtitle, icon }) {
+export function PageHero({ title, subtitle, icon, children }) {
     return (
         <section className="pt-40 pb-20 px-6 bg-gradient-to-br from-navy to-deep-blue relative overflow-hidden">
             <div className="noise-overlay" />
@@ -13,6 +13,7 @@ export function PageHero({ title, subtitle, icon }) {
                 <p className="text-lg text-white/65 leading-relaxed max-w-[600px]">
                     {subtitle}
                 </p>
+                {children && <div className="mt-8">{children}</div>}
             </div>
         </section>
     );

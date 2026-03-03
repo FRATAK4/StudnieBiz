@@ -12,7 +12,9 @@ export default function HomePage() {
 
     const go = (path) => {
         navigate(path);
-        window.scrollTo(0, 0);
+        if (!path.includes("#")) {
+            window.scrollTo(0, 0);
+        }
     };
 
     return (
@@ -57,7 +59,7 @@ export default function HomePage() {
                             </p>
 
                             <div className="animate-in animate-delay-4 flex gap-4 flex-wrap">
-                                <button className="btn-primary" onClick={() => go("/kontakt")}>
+                                <button className="btn-primary" onClick={() => go("/studnie#formularz")}>
                                     Bezpłatna wycena {Icons.arrowRight}
                                 </button>
                                 <button className="btn-outline" onClick={() => go("/realizacje")}>
@@ -193,11 +195,11 @@ export default function HomePage() {
                             Działamy na terenie całej Polski.
                         </p>
                         <div className="flex gap-4 justify-center flex-wrap">
-                            <button className="btn-primary !text-base !py-4 !px-9" onClick={() => go("/kontakt")}>
-                                {Icons.phone} Zadzwoń: 602 333 745
+                            <button className="btn-primary !text-base !py-4 !px-9" onClick={() => go("/studnie#formularz")}>
+                                {Icons.water} Wycena studni
                             </button>
-                            <button className="btn-outline !text-base !py-4 !px-9" onClick={() => go("/kontakt")}>
-                                {Icons.mail} Napisz do nas
+                            <button className="btn-outline !text-base !py-4 !px-9" onClick={() => go("/pompy-ciepla#formularz")}>
+                                {Icons.flame} Wycena odwiertów
                             </button>
                         </div>
                     </AnimatedSection>
