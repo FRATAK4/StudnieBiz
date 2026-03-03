@@ -31,7 +31,7 @@ export default function StudniePage() {
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-start">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-center">
                             <div>
                                 <div className="section-tag">Budowa studni</div>
                                 <h2 className="section-title !text-[32px]">Kompleksowa budowa studni głębinowych</h2>
@@ -117,10 +117,10 @@ export default function StudniePage() {
             <section className="py-20 px-6 bg-off-white">
                 <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div className="section-tag">Serwis</div>
-                        <h2 className="section-title !text-[32px]">Kamerowanie, renowacja i likwidacja studni</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 mt-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-center">
                             <div>
+                                <div className="section-tag">Serwis</div>
+                                <h2 className="section-title !text-[32px]">Kamerowanie, renowacja i likwidacja studni</h2>
                                 <p className="text-gray-500 leading-relaxed text-base mb-6">
                                     W studniach głębinowych podczas eksploatacji zachodzi wiele procesów fizykochemicznych wpływających na zmianę przepustowości filtra. Oferujemy inspekcję kamerą TV jako podstawową formę oceny stanu technicznego studni.
                                 </p>

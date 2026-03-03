@@ -29,7 +29,7 @@ export default function PompyPage() {
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-[1100px] mx-auto">
                     <AnimatedSection>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-center">
                             <div>
                                 <div className="section-tag">Dlaczego gruntowa pompa ciepła?</div>
                                 <h2 className="section-title !text-[32px]">Najwyższa efektywność energetyczna</h2>

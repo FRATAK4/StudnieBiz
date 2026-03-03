@@ -10,7 +10,7 @@ export default function RealizacjePage() {
     return (
         <div>
             <Helmet>
-                <title>Realizacje i referencje — ponad {boreholesFormatted} odwiertów | studnie.biz</title>
+                <title>{`Realizacje i referencje — ponad ${boreholesFormatted} odwiertów | studnie.biz`}</title>
                 <meta name="description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Realizacje dla ${references.slice(0, 4).join(", ")} i wielu innych. Referencje klientów.`} />
                 <meta property="og:title" content={`Realizacje i referencje — ponad ${boreholesFormatted} odwiertów | studnie.biz`} />
                 <meta property="og:description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Referencje od ${references.slice(0, 3).join(", ")} i wielu innych.`} />

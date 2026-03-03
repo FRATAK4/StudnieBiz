@@ -23,7 +23,7 @@ export default function HomePage() {
     return (
         <div>
             <Helmet>
-                <title>Studnie głębinowe i pompy ciepła — wiercenie od {stats.foundedYear} | studnie.biz</title>
+                <title>{`Studnie głębinowe i pompy ciepła — wiercenie od ${stats.foundedYear} | studnie.biz`}</title>
                 <meta name="description" content={`${company.name} — wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Jedyna firma w Polsce z certyfikatem DVGW BAU. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów.`} />
                 <meta property="og:title" content={`Studnie głębinowe i pompy ciepła — wiercenie od ${stats.foundedYear} | studnie.biz`} />
                 <meta property="og:description" content={`Wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów od ${stats.foundedYear} roku. Certyfikat DVGW BAU.`} />
