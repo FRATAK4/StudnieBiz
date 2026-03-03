@@ -5,11 +5,13 @@ import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { StatCounter } from "../components/StatCounter.jsx";
 import { ServiceCard } from "../components/ServiceCard.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
+import { company, stats } from "../data/content.js";
 import zespolGrupowe from "../assets/images/ogolne/zespol-grupowe.jpg";
 import zespolWiertnica from "../assets/images/ogolne/zespol-przy-wiertnicy.jpg";
 
 export default function HomePage() {
     const navigate = useNavigate();
+    const yearsExperience = new Date().getFullYear() - stats.foundedYear;
 
     const go = (path) => {
         navigate(path);
@@ -21,10 +23,10 @@ export default function HomePage() {
     return (
         <div>
             <Helmet>
-                <title>Studnie głębinowe i pompy ciepła — wiercenie od 1968 | studnie.biz</title>
-                <meta name="description" content="Zakład Usług Studziennych — wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Jedyna firma w Polsce z certyfikatem DVGW BAU. Ponad 35 000 odwiertów." />
-                <meta property="og:title" content="Studnie głębinowe i pompy ciepła — wiercenie od 1968 | studnie.biz" />
-                <meta property="og:description" content="Wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Ponad 35 000 odwiertów od 1968 roku. Certyfikat DVGW BAU." />
+                <title>Studnie głębinowe i pompy ciepła — wiercenie od {stats.foundedYear} | studnie.biz</title>
+                <meta name="description" content={`${company.name} — wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Jedyna firma w Polsce z certyfikatem DVGW BAU. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów.`} />
+                <meta property="og:title" content={`Studnie głębinowe i pompy ciepła — wiercenie od ${stats.foundedYear} | studnie.biz`} />
+                <meta property="og:description" content={`Wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów od ${stats.foundedYear} roku. Certyfikat DVGW BAU.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/" />
                 <link rel="canonical" href="https://studnie.biz/" />
@@ -41,7 +43,7 @@ export default function HomePage() {
                         <div>
                             <div className="animate-in animate-delay-1 mb-6">
                                 <span className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 py-2 px-4 rounded-full text-accent text-[13px] font-semibold font-heading">
-                                    {Icons.shield} Od 1968 roku — ponad 35 000 odwiertów
+                                    {Icons.shield} Od {stats.foundedYear} roku — ponad {stats.boreholes.toLocaleString("pl-PL")} odwiertów
                                 </span>
                             </div>
 
@@ -71,10 +73,10 @@ export default function HomePage() {
 
                         <div className="animate-in animate-delay-5 hidden lg:block">
                             <div className="relative">
-                                <img src={zespolGrupowe} alt="Zespół pracowników Zakładu Usług Studziennych przed wiertnicą" className="rounded-[20px] border border-white/8 w-full h-[480px] object-cover" />
+                                <img src={zespolGrupowe} alt={`Zespół pracowników ${company.name} przed wiertnicą`} className="rounded-[20px] border border-white/8 w-full h-[480px] object-cover" />
                                 {/* Floating stat card */}
                                 <div className="glass absolute -bottom-5 -left-5 p-5 px-6 rounded-2xl animate-float">
-                                    <div className="font-heading font-black text-[32px] text-accent">60+</div>
+                                    <div className="font-heading font-black text-[32px] text-accent">{yearsExperience}+</div>
                                     <div className="text-white/70 text-[13px] font-medium">Lat doświadczenia</div>
                                 </div>
                                 <div className="glass absolute top-5 -right-2.5 py-4 px-5 rounded-[14px] animate-float" style={{ animationDelay: "1s" }}>
@@ -90,10 +92,10 @@ export default function HomePage() {
             {/* Stats bar */}
             <section className="water-gradient py-15 px-6">
                 <div className="max-w-[1000px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-10">
-                    <StatCounter value={35000} suffix="+" label="wykonanych otworów" />
-                    <StatCounter value={60} suffix="+" label="lat doświadczenia" />
-                    <StatCounter value={10} label="lat gwarancji na studnię" />
-                    <StatCounter value={1968} label="rok założenia" />
+                    <StatCounter value={stats.boreholes} suffix="+" label="wykonanych otworów" />
+                    <StatCounter value={yearsExperience} suffix="+" label="lat doświadczenia" />
+                    <StatCounter value={stats.warrantyYears} label="lat gwarancji na studnię" />
+                    <StatCounter value={stats.foundedYear} label="rok założenia" />
                 </div>
             </section>
 
@@ -113,7 +115,7 @@ export default function HomePage() {
                             <ServiceCard
                                 icon={Icons.water}
                                 title="Studnie głębinowe"
-                                description="Wiercenie, budowa i renowacja studni. Metoda udarowa na sprężone powietrze dla maksymalnej wydajności. 10 lat gwarancji."
+                                description={`Wiercenie, budowa i renowacja studni. Metoda udarowa na sprężone powietrze dla maksymalnej wydajności. ${stats.warrantyYears} lat gwarancji.`}
                                 onClick={() => go("/studnie")}
                             />
                         </AnimatedSection>
@@ -172,7 +174,7 @@ export default function HomePage() {
                             <div className="section-tag">Dlaczego my?</div>
                             <h2 className="section-title">Ponad pół wieku doświadczenia w branży wiertniczej</h2>
                             <p className="text-gray-500 leading-relaxed text-base mb-9">
-                                Zakład Usług Studziennych działa nieprzerwanie od 1968 roku.
+                                {company.name} działa nieprzerwanie od {stats.foundedYear} roku.
                                 Jako jedyna firma wiertnicza w Polsce posiadamy niemiecki certyfikat DVGW BAU.
                             </p>
                             <FeatureItem icon={Icons.layers} title="Kompleksowość" description="Od projektu geologicznego, przez wiercenie, po dokumentację powykonawczą. Darmowa wizja lokalna." />

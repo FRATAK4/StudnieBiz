@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Icons from "../icons/Icons.jsx";
+import { stats } from "../data/content.js";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
@@ -14,9 +15,9 @@ export default function StudniePage() {
         <div>
             <Helmet>
                 <title>Studnie głębinowe — wiercenie, budowa, renowacja | studnie.biz</title>
-                <meta name="description" content="Wiercenie studni głębinowych metodą udarową na sprężone powietrze. Budowa, renowacja, kamerowanie i likwidacja studni. 10 lat gwarancji. Działamy od 1968 roku." />
+                <meta name="description" content={`Wiercenie studni głębinowych metodą udarową na sprężone powietrze. Budowa, renowacja, kamerowanie i likwidacja studni. ${stats.warrantyYears} lat gwarancji. Działamy od ${stats.foundedYear} roku.`} />
                 <meta property="og:title" content="Studnie głębinowe — wiercenie, budowa, renowacja | studnie.biz" />
-                <meta property="og:description" content="Wiercenie studni głębinowych metodą udarową na sprężone powietrze. Budowa, renowacja, kamerowanie i likwidacja. 10 lat gwarancji." />
+                <meta property="og:description" content={`Wiercenie studni głębinowych metodą udarową na sprężone powietrze. Budowa, renowacja, kamerowanie i likwidacja. ${stats.warrantyYears} lat gwarancji.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/studnie" />
                 <link rel="canonical" href="https://studnie.biz/studnie" />
@@ -158,7 +159,7 @@ export default function StudniePage() {
                 <div className="max-w-[900px] mx-auto text-center text-white">
                     <AnimatedSection>
                         <div className="font-heading font-black text-[clamp(36px,5vw,56px)] mb-3">
-                            10 lat gwarancji
+                            {stats.warrantyYears} lat gwarancji
                         </div>
                         <p className="text-lg text-white/70">
                             Na wykonaną studnię głębinową. Stosowane materiały posiadają atest higieniczny do kontaktu z wodą pitną.

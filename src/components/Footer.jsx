@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Icons from "../icons/Icons.jsx";
+import { company, stats } from "../data/content.js";
 
 export function Footer() {
     const navigate = useNavigate();
@@ -8,6 +9,9 @@ export function Footer() {
         navigate(path);
         window.scrollTo(0, 0);
     };
+
+    const currentYear = new Date().getFullYear();
+    const yearsExperience = currentYear - stats.foundedYear;
 
     return (
         <footer className="bg-navy text-white py-20 px-6 pb-10 relative overflow-hidden">
@@ -27,7 +31,7 @@ export function Footer() {
                             </div>
                         </div>
                         <p className="text-white/60 leading-relaxed text-sm">
-                            Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o. — ponad 55 lat doświadczenia na rynku wiertniczym. Jedyna firma w Polsce z certyfikatem DVGW BAU.
+                            {company.fullName} — ponad {yearsExperience} lat doświadczenia na rynku wiertniczym. Jedyna firma w Polsce z certyfikatem DVGW BAU.
                         </p>
                     </div>
 
@@ -55,10 +59,10 @@ export function Footer() {
                         <h4 className="font-heading font-bold text-base mb-5">Kontakt</h4>
                         <div className="flex flex-col gap-3">
                             {[
-                                { icon: Icons.mapPin, text: "ul. Spacerowa 5, 25-026 Kielce" },
-                                { icon: Icons.phone, text: "602 333 745 / 41 361 55 15" },
-                                { icon: Icons.mail, text: "studnie1@gmail.com" },
-                                { icon: Icons.globe, text: "www.studnie.biz" },
+                                { icon: Icons.mapPin, text: company.address },
+                                { icon: Icons.phone, text: `${company.phone.mobile1} / ${company.phone.landline}` },
+                                { icon: Icons.mail, text: company.email },
+                                { icon: Icons.globe, text: company.website },
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-2.5 text-white/60 text-sm">
                                     {item.icon} {item.text}
@@ -70,10 +74,10 @@ export function Footer() {
 
                 <div className="border-t border-white/8 pt-7 flex justify-between items-center flex-wrap gap-4">
                     <div className="text-white/40 text-[13px]">
-                        © 2025 studnie.biz — Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o.
+                        © {currentYear} studnie.biz — {company.fullName}
                     </div>
                     <div className="text-white/40 text-[13px]">
-                        Kielce, Polska | Działamy na terenie całej Polski
+                        {company.city}, Polska | Działamy na terenie całej Polski
                     </div>
                 </div>
             </div>

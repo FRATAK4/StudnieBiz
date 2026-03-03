@@ -2,28 +2,23 @@ import { Helmet } from "react-helmet-async";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { PageHero } from "../components/PageHero.jsx";
-
-const locations = [
-    "Kluczbork", "Przykory", "Iwaniska", "Niemodlin", "Serock", "Prostki",
-    "Racławice Śl.", "Pawłów", "Olesno", "Herby", "Skierniewice", "Pawłowiczki",
-    "Głogów", "Czyżew", "Chocianowice", "Adamów", "Biechów", "Lubaczów",
-    "Łyszkowice", "Zabierzów", "Bierawa", "Myszków", "Damnica", "Albertów",
-    "Gałkowice Ocin", "Łukaszowice", "Dziurków", "Opole", "Zwonowice", "Sarnaki",
-];
+import { stats, references, locations } from "../data/content.js";
 
 export default function RealizacjePage() {
+    const boreholesFormatted = stats.boreholes.toLocaleString("pl-PL");
+
     return (
         <div>
             <Helmet>
-                <title>Realizacje i referencje — ponad 35 000 odwiertów | studnie.biz</title>
-                <meta name="description" content="Ponad 35 000 wykonanych otworów na terenie całej Polski. Realizacje dla Zbyszko, Hortex, Sokpol, INDUSTRIA i wielu innych. Referencje klientów." />
-                <meta property="og:title" content="Realizacje i referencje — ponad 35 000 odwiertów | studnie.biz" />
-                <meta property="og:description" content="Ponad 35 000 wykonanych otworów na terenie całej Polski. Referencje od Zbyszko, Hortex, Sokpol i wielu innych." />
+                <title>Realizacje i referencje — ponad {boreholesFormatted} odwiertów | studnie.biz</title>
+                <meta name="description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Realizacje dla ${references.slice(0, 4).join(", ")} i wielu innych. Referencje klientów.`} />
+                <meta property="og:title" content={`Realizacje i referencje — ponad ${boreholesFormatted} odwiertów | studnie.biz`} />
+                <meta property="og:description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Referencje od ${references.slice(0, 3).join(", ")} i wielu innych.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/realizacje" />
                 <link rel="canonical" href="https://studnie.biz/realizacje" />
             </Helmet>
-            <PageHero title="Nasze realizacje" subtitle="Ponad 35 000 wykonanych otworów na terenie całej Polski. Od studni dla domów jednorodzinnych po wielkie projekty publiczne." icon={Icons.award} />
+            <PageHero title="Nasze realizacje" subtitle={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Od studni dla domów jednorodzinnych po wielkie projekty publiczne.`} icon={Icons.award} />
 
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-[1100px] mx-auto">
@@ -52,7 +47,7 @@ export default function RealizacjePage() {
                         <div className="section-tag">Zaufali nam</div>
                         <h2 className="section-title !text-[32px]">Referencje klientów</h2>
                         <div className="flex flex-wrap justify-center gap-6 mt-8">
-                            {["Zbyszko", "Życkowiacz", "Jamar", "Sokpol", "Hortex", "INDUSTRIA", "Andrzej Stępień LASPOL MAX"].map((name, i) => (
+                            {references.map((name, i) => (
                                 <div key={i} className="bg-white rounded-xl py-5 px-7 font-heading font-bold text-base text-navy border border-black/6">
                                     {name}
                                 </div>

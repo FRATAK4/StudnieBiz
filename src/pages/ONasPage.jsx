@@ -4,20 +4,21 @@ import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
 import { PageHero } from "../components/PageHero.jsx";
+import { company, stats, partnerships } from "../data/content.js";
 
 export default function ONasPage() {
     return (
         <div>
             <Helmet>
-                <title>O nas — Zakład Usług Studziennych od 1968 | studnie.biz</title>
-                <meta name="description" content="Zakład Usług Studziennych Bernard Marian Wójcik — ponad 55 lat tradycji wiertniczej. Jedyna firma w Polsce z niemieckim certyfikatem DVGW BAU W 120-1 i W 120-2." />
-                <meta property="og:title" content="O nas — Zakład Usług Studziennych od 1968 | studnie.biz" />
-                <meta property="og:description" content="Ponad 55 lat tradycji wiertniczej. Jedyna firma w Polsce z certyfikatem DVGW BAU. Współpraca z PORT PC, STIEBEL ELTRON i AGH." />
+                <title>{`O nas — ${company.name} od ${stats.foundedYear} | studnie.biz`}</title>
+                <meta name="description" content={`${company.fullName} — ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z niemieckim certyfikatem DVGW BAU W 120-1 i W 120-2.`} />
+                <meta property="og:title" content={`O nas — ${company.name} od ${stats.foundedYear} | studnie.biz`} />
+                <meta property="og:description" content={`Ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z certyfikatem DVGW BAU. Współpraca z ${partnerships.join(", ")}.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/o-nas" />
                 <link rel="canonical" href="https://studnie.biz/o-nas" />
             </Helmet>
-            <PageHero title="O nas" subtitle="Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o. — ponad 55 lat tradycji wiertniczej, nowoczesne technologie i niemiecki certyfikat DVGW BAU." icon={Icons.users} />
+            <PageHero title="O nas" subtitle={`${company.fullName} — ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej, nowoczesne technologie i niemiecki certyfikat DVGW BAU.`} icon={Icons.users} />
 
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-[1100px] mx-auto">
@@ -25,9 +26,9 @@ export default function ONasPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-15">
                             <div>
                                 <div className="section-tag">Nasza historia</div>
-                                <h2 className="section-title !text-[32px]">Od 1968 roku nieprzerwanie</h2>
+                                <h2 className="section-title !text-[32px]">Od {stats.foundedYear} roku nieprzerwanie</h2>
                                 <p className="text-gray-500 leading-relaxed text-base mb-5">
-                                    Zakład Usług Studziennych to firma, w której właściciel wykonuje roboty wiertnicze nieprzerwanie od 1968 roku. Odwierty wykonujemy w różnych technologiach w zależności od warunków geologicznych.
+                                    {company.name} to firma, w której właściciel wykonuje roboty wiertnicze nieprzerwanie od {stats.foundedYear} roku. Odwierty wykonujemy w różnych technologiach w zależności od warunków geologicznych.
                                 </p>
                                 <p className="text-gray-500 leading-relaxed text-base mb-5">
                                     Dysponujemy wiedzą i urządzeniami pozwalającymi pracować w każdych warunkach. Wdrażamy nowoczesne technologie oraz wykorzystujemy materiały chroniące środowisko.
@@ -79,7 +80,7 @@ export default function ONasPage() {
                         <div className="section-tag">Członkostwa i współpraca</div>
                         <h2 className="section-title !text-[28px]">Współpracujemy z najlepszymi</h2>
                         <div className="flex justify-center gap-10 flex-wrap mt-8">
-                            {["PORT PC", "STIEBEL ELTRON", "AGH Kraków"].map((name, i) => (
+                            {partnerships.map((name, i) => (
                                 <div key={i} className="bg-off-white rounded-[14px] py-6 px-9 font-heading font-bold text-lg text-navy">
                                     {name}
                                 </div>

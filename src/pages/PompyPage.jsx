@@ -5,6 +5,7 @@ import { CheckList } from "../components/CheckList.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
 import { InquiryForm } from "../components/InquiryForm.jsx";
 import { PageHero } from "../components/PageHero.jsx";
+import { heatPumpProjects } from "../data/content.js";
 import sondyMontaz from "../assets/images/pompy/sondy-geotermalne-montaz.jpg";
 
 export default function PompyPage() {
@@ -64,19 +65,7 @@ export default function PompyPage() {
                         <div className="section-tag">Realizacje</div>
                         <h2 className="section-title !text-[32px]">Wybrane realizacje odwiertów</h2>
                         <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-5 mt-8">
-                            {[
-                                { loc: "Chęciny", desc: "76 otworów × 120m — Europejskie Centrum Edukacji Geologicznej", km: "9,1 km" },
-                                { loc: "Zagnańsk", desc: "49 otworów × 100m — Zespół Szkoły Podstawowej i Hala", km: "4,9 km" },
-                                { loc: "Sobów", desc: "37 otworów × 200m — Dom Pomocy Społecznej", km: "6,5 km" },
-                                { loc: "Piekoszów", desc: "50 otworów × 100m — Hala produkcyjna WW TECH", km: "5,0 km" },
-                                { loc: "Zamość", desc: "44 otwory × 100m — Zespół Szkół Ponadgimnazjalnych nr 4", km: "4,4 km" },
-                                { loc: "Mariówka", desc: "48 otworów × 100m — Dom Generalny Zgromadzenia Sióstr Służek NMP Niepokalanej", km: "4,8 km" },
-                                { loc: "Osiny", desc: "40 otworów × 100m — Zakład Opiekuńczo-Leczniczy", km: "4,0 km" },
-                                { loc: "Miechów", desc: "26 otworów × 100m — Plebania i Dom Sióstr Parafii Grobu Bożego", km: "2,6 km" },
-                                { loc: "Dziekanowice", desc: "22 otwory × 100m — Budynek Szkoły", km: "2,2 km" },
-                                { loc: "Tarnów", desc: "12 otworów × 100m — Budynek mieszkalny wielorodzinny", km: "1,2 km" },
-                                { loc: "Baćkowice", desc: "5 otworów × 195m — Budynek wielofunkcyjny Urzędu Gminy", km: "0,9 km" },
-                            ].map((item, i) => (
+                            {heatPumpProjects.map((item, i) => (
                                 <div key={i} className="bg-white rounded-[14px] p-6 border border-black/6">
                                     <div className="font-heading font-extrabold text-lg text-navy mb-2">{item.loc}</div>
                                     <p className="text-gray-500 text-sm leading-relaxed mb-3">{item.desc}</p>

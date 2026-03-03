@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Icons from "../icons/Icons.jsx";
+import { company } from "../data/content.js";
 
 const navItems = [
     { path: "/", label: "Start" },
@@ -72,7 +73,7 @@ export function Navigation() {
                         onClick={() => handleNav("/kontakt")}
                     >
                         {Icons.phone}
-                        <span>602 333 745</span>
+                        <span>{company.phone.mobile1}</span>
                     </button>
                 </div>
 
