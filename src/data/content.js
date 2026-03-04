@@ -1,6 +1,17 @@
 // Centralny plik z danymi firmy — jedno źródło prawdy
 // Używany w komponentach, stronach i meta tagach
 
+import zbyszkoLogo from "../assets/images/loga/zbyszko.png";
+import zychowiczLogo from "../assets/images/loga/zychowicz.png";
+import jamarLogo from "../assets/images/loga/jamar.png";
+import sokpolLogo from "../assets/images/loga/sokpol.png";
+import hortexLogo from "../assets/images/loga/hortex.png";
+import industriaLogo from "../assets/images/loga/industria.png";
+import aspolLogo from "../assets/images/loga/aspol.png";
+import stiebelEltronLogo from "../assets/images/loga/stiebel_eltron.png";
+import portPcLogo from "../assets/images/loga/port_pc.png";
+import aghLogo from "../assets/images/loga/agh.png";
+
 export const company = {
     name: "Zakład Usług Studziennych",
     fullName: "Zakład Usług Studziennych Bernard Marian Wójcik Sp. z o.o.",
@@ -27,11 +38,20 @@ export const certifications = {
     dvgw: ["W 120-1 (Brunnenbau — budowa studni)", "W 120-2 (Geothermie — geotermia)"],
 };
 
-export const partnerships = ["PORT PC", "STIEBEL ELTRON", "AGH Kraków"];
+export const partnerships = [
+    { name: "PORT PC", logo: portPcLogo },
+    { name: "STIEBEL ELTRON", logo: stiebelEltronLogo },
+    { name: "AGH Kraków", logo: aghLogo },
+];
 
 export const references = [
-    "Zbyszko", "Życkowiacz", "Jamar", "Sokpol",
-    "Hortex", "INDUSTRIA", "Andrzej Stępień LASPOL MAX",
+    { name: "Zbyszko", logo: zbyszkoLogo },
+    { name: "Życkowiacz", logo: zychowiczLogo },
+    { name: "Jamar", logo: jamarLogo },
+    { name: "Sokpol", logo: sokpolLogo },
+    { name: "Hortex", logo: hortexLogo },
+    { name: "INDUSTRIA", logo: industriaLogo },
+    { name: "Andrzej Stępień LASPOL MAX", logo: aspolLogo },
 ];
 
 export const locations = [

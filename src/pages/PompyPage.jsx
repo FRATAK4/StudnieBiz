@@ -4,8 +4,9 @@ import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { FeatureItem } from "../components/FeatureItem.jsx";
 import { InquiryForm } from "../components/InquiryForm.jsx";
+import { LogoGrid } from "../components/LogoGrid.jsx";
 import { PageHero } from "../components/PageHero.jsx";
-import { heatPumpProjects } from "../data/content.js";
+import { heatPumpProjects, partnerships } from "../data/content.js";
 import sondyMontaz from "../assets/images/pompy/sondy-geotermalne-montaz.jpg";
 
 export default function PompyPage() {
@@ -95,13 +96,11 @@ export default function PompyPage() {
 
             {/* Współpraca */}
             <section className="py-15 px-6 bg-white">
-                <div className="max-w-[900px] mx-auto text-center">
+                <div className="max-w-[800px] mx-auto text-center">
                     <AnimatedSection>
-                        <p className="text-gray-500 text-base leading-relaxed">
-                            Jesteśmy członkiem <strong className="text-navy">PORT PC</strong> — Polskiej Organizacji Rozwoju Pomp Ciepła.
-                            Współpracujemy z producentem gruntowych pomp ciepła <strong className="text-navy">STIEBEL ELTRON</strong>.
-                            Wykonujemy testy TRT we współpracy z <strong className="text-navy">AGH</strong>.
-                        </p>
+                        <div className="section-tag">Członkostwa i współpraca</div>
+                        <h2 className="section-title !text-[28px]">Współpracujemy z najlepszymi</h2>
+                        <LogoGrid items={partnerships} />
                     </AnimatedSection>
                 </div>
             </section>

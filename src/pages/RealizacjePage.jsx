@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
+import { LogoGrid } from "../components/LogoGrid.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 import { PolandMap } from "../components/PolandMap.jsx";
 import { stats, references, locations, voivodeships } from "../data/content.js";
@@ -12,9 +13,9 @@ export default function RealizacjePage() {
         <div>
             <Helmet>
                 <title>{`Realizacje i referencje — ponad ${boreholesFormatted} odwiertów | studnie.biz`}</title>
-                <meta name="description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Realizacje dla ${references.slice(0, 4).join(", ")} i wielu innych. Referencje klientów.`} />
+                <meta name="description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Realizacje dla ${references.slice(0, 4).map(r => r.name).join(", ")} i wielu innych. Referencje klientów.`} />
                 <meta property="og:title" content={`Realizacje i referencje — ponad ${boreholesFormatted} odwiertów | studnie.biz`} />
-                <meta property="og:description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Referencje od ${references.slice(0, 3).join(", ")} i wielu innych.`} />
+                <meta property="og:description" content={`Ponad ${boreholesFormatted} wykonanych otworów na terenie całej Polski. Referencje od ${references.slice(0, 3).map(r => r.name).join(", ")} i wielu innych.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/realizacje" />
                 <link rel="canonical" href="https://studnie.biz/realizacje" />
@@ -48,13 +49,7 @@ export default function RealizacjePage() {
                     <AnimatedSection>
                         <div className="section-tag">Zaufali nam</div>
                         <h2 className="section-title !text-[32px]">Referencje klientów</h2>
-                        <div className="flex flex-wrap justify-center gap-6 mt-8">
-                            {references.map((name, i) => (
-                                <div key={i} className="bg-white rounded-xl py-5 px-7 font-heading font-bold text-base text-navy border border-black/6">
-                                    {name}
-                                </div>
-                            ))}
-                        </div>
+                        <LogoGrid items={references} />
                     </AnimatedSection>
                 </div>
             </section>

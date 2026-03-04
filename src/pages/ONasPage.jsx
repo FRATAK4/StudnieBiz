@@ -3,6 +3,7 @@ import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { CheckList } from "../components/CheckList.jsx";
 import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
+import { LogoGrid } from "../components/LogoGrid.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 import { company, stats, partnerships } from "../data/content.js";
 
@@ -13,7 +14,7 @@ export default function ONasPage() {
                 <title>{`O nas — ${company.name} od ${stats.foundedYear} | studnie.biz`}</title>
                 <meta name="description" content={`${company.fullName} — ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z niemieckim certyfikatem DVGW BAU W 120-1 i W 120-2.`} />
                 <meta property="og:title" content={`O nas — ${company.name} od ${stats.foundedYear} | studnie.biz`} />
-                <meta property="og:description" content={`Ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z certyfikatem DVGW BAU. Współpraca z ${partnerships.join(", ")}.`} />
+                <meta property="og:description" content={`Ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z certyfikatem DVGW BAU. Współpraca z ${partnerships.map(p => p.name).join(", ")}.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/o-nas" />
                 <link rel="canonical" href="https://studnie.biz/o-nas" />
@@ -79,13 +80,7 @@ export default function ONasPage() {
                     <AnimatedSection>
                         <div className="section-tag">Członkostwa i współpraca</div>
                         <h2 className="section-title !text-[28px]">Współpracujemy z najlepszymi</h2>
-                        <div className="flex justify-center gap-10 flex-wrap mt-8">
-                            {partnerships.map((name, i) => (
-                                <div key={i} className="bg-off-white rounded-[14px] py-6 px-9 font-heading font-bold text-lg text-navy">
-                                    {name}
-                                </div>
-                            ))}
-                        </div>
+                        <LogoGrid items={partnerships} />
                     </AnimatedSection>
                 </div>
             </section>

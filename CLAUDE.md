@@ -155,6 +155,7 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - [ ] **PYTANIE DO KLIENTA: Wymagalność pól formularzy** — wszystkie pola ustawione jako wymagane; skonsultować, czy np. e-mail lub numer działki mogą być opcjonalne
 - [ ] **PYTANIE DO KLIENTA: Wysyłanie formularzy** — wybrać sposób dostarczania zgłoszeń (rekomendacja: Formspree — darmowy, bez backendu, maile na studnie1@gmail.com); klient musi podać docelowy adres e-mail na zgłoszenia
 - [ ] **PYTANIE DO KLIENTA: Liczby realizacji per województwo** — mapa choropleth na `/realizacje` używa oszacowanych przedziałów z grafiki `docs/realizacje.png`; skonsultować aktualne dane z klientem
+- [ ] **PYTANIE DO KLIENTA: Zgoda na logotypy firm** — na stronie używane są loga klientów (Zbyszko, Hortex, Sokpol, Jamar, Życkowiacz, INDUSTRIA, LASPOL MAX) i partnerów (STIEBEL ELTRON, PORT PC, AGH Kraków); skonsultować, czy klient posiada pisemne zgody na upublicznianie logotypów tych firm w sekcjach referencji i współpracy
 
 ### Frontend (do zrobienia w kodzie)
 
