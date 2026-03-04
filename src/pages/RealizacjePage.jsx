@@ -3,7 +3,7 @@ import Icons from "../icons/Icons.jsx";
 import { AnimatedSection } from "../components/AnimatedSection.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 import { PolandMap } from "../components/PolandMap.jsx";
-import { stats, references, locations } from "../data/content.js";
+import { stats, references, locations, voivodeships } from "../data/content.js";
 
 export default function RealizacjePage() {
     const boreholesFormatted = stats.boreholes.toLocaleString("pl-PL");
@@ -30,7 +30,7 @@ export default function RealizacjePage() {
                             Nasze realizacje obejmują setki lokalizacji — od małych studni przy domach jednorodzinnych po dziesiątki otworów dla obiektów publicznych i przemysłowych.
                         </p>
 
-                        <PolandMap locations={locations} />
+                        <PolandMap voivodeships={voivodeships} />
 
                         {/* Ukryta lista miast dla SEO */}
                         <ul className="sr-only">

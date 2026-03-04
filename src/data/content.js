@@ -68,6 +68,27 @@ export const locations = [
     { name: "Sarnaki", lat: 52.2000, lng: 22.8167 },
 ];
 
+// Przedziały realizacji per województwo (na podstawie grafiki klienta)
+// TODO: Skonsultować z klientem aktualne liczby realizacji per województwo
+export const voivodeships = {
+    "zachodniopomorskie":     { name: "Zachodniopomorskie",     range: "1–10" },
+    "pomorskie":             { name: "Pomorskie",              range: "1–10" },
+    "warmińsko-mazurskie":   { name: "Warmińsko-mazurskie",    range: "11–30" },
+    "podlaskie":             { name: "Podlaskie",              range: "11–30" },
+    "lubuskie":              { name: "Lubuskie",               range: "1–10" },
+    "wielkopolskie":         { name: "Wielkopolskie",           range: "1–10" },
+    "kujawsko-pomorskie":    { name: "Kujawsko-pomorskie",     range: "1–10" },
+    "mazowieckie":           { name: "Mazowieckie",            range: "101–500" },
+    "łódzkie":               { name: "Łódzkie",                range: "101–500" },
+    "dolnośląskie":          { name: "Dolnośląskie",           range: "11–30" },
+    "opolskie":              { name: "Opolskie",               range: "51–100" },
+    "śląskie":               { name: "Śląskie",                range: "31–50" },
+    "małopolskie":           { name: "Małopolskie",            range: "51–100" },
+    "świętokrzyskie":        { name: "Świętokrzyskie",         range: "powyżej 1000" },
+    "podkarpackie":          { name: "Podkarpackie",           range: "31–50" },
+    "lubelskie":             { name: "Lubelskie",              range: "51–100" },
+};
+
 // Realizacje odwiertów pod pompy ciepła (PompyPage)
 export const heatPumpProjects = [
     { loc: "Chęciny", desc: "76 otworów × 120m — Europejskie Centrum Edukacji Geologicznej", km: "9,1 km" },
