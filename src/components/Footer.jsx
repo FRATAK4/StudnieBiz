@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Icons from "../icons/Icons.jsx";
 import { company, stats } from "../data/content.js";
+import logo from "../assets/images/logo.png";
 
 export function Footer() {
     const navigate = useNavigate();
@@ -20,15 +21,8 @@ export function Footer() {
                 <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-12 mb-15">
                     {/* Col 1 - Brand */}
                     <div>
-                        <div className="flex items-center gap-2.5 mb-5">
-                            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue to-accent flex items-center justify-center font-heading font-black text-xl text-white">
-                                S
-                            </div>
-                            <div>
-                                <div className="font-heading font-extrabold text-[22px]">
-                                    studnie<span className="text-accent">.biz</span>
-                                </div>
-                            </div>
+                        <div className="mb-5">
+                            <img src={logo} alt={company.name} className="h-14 brightness-0 invert" />
                         </div>
                         <p className="text-white/60 leading-relaxed text-sm">
                             {company.fullName} — ponad {yearsExperience} lat doświadczenia na rynku wiertniczym. Jedyna firma w Polsce z certyfikatem DVGW BAU.

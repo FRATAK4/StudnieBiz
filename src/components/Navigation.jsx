@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Icons from "../icons/Icons.jsx";
 import { company } from "../data/content.js";
+import logo from "../assets/images/logo.png";
 
 const navItems = [
     { path: "/", label: "Start" },
@@ -37,20 +38,10 @@ export function Navigation() {
             <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <div
-                    className="cursor-pointer flex items-center gap-2.5"
+                    className="cursor-pointer flex items-center"
                     onClick={() => handleNav("/")}
                 >
-                    <div className="w-10 h-10 rounded-[10px] bg-gradient-to-br from-blue to-accent flex items-center justify-center text-white font-heading font-black text-lg">
-                        S
-                    </div>
-                    <div>
-                        <div className="font-heading font-extrabold text-xl text-white leading-tight">
-                            studnie<span className="text-accent">.biz</span>
-                        </div>
-                        <div className="text-[10px] text-white/50 tracking-[1.5px] uppercase font-semibold">
-                            studnie głębinowe · pompy ciepła
-                        </div>
-                    </div>
+                    <img src={logo} alt={company.name} className="h-12 brightness-0 invert" />
                 </div>
 
                 {/* Desktop nav */}

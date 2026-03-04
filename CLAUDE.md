@@ -147,9 +147,7 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 
 ### Od klienta (czekamy na materiały)
 
-- [x] **Zdjęcia firmy** — 18 zdjęć dostarczonych, zoptymalizowanych i umieszczonych na HomePage, StudniePage, PompyPage; `ImgPlaceholder` zostaje tylko na ONasPage (brak zdjęć historycznych/certyfikatów)
-- [ ] **Logo firmy** — zastąpić placeholder `favicon.svg` (gradient "S") prawdziwym logo; użyć jako favicon + logo w nawigacji i stopce
-- [x] **Nowe formularze (2 szt.)** — struktura dostarczona w `docs/formularz_studnia_glebinowa.md` i `docs/formularz_pompa_ciepla.md`
+- [ ] **PYTANIE DO KLIENTA: Logo firmy w lepszej jakości** — obecne logo (`docs/loga/studnie_biz.png`, 225×225px) ma niską rozdzielczość; poprosić klienta o logo w formacie SVG lub PNG z przezroczystym tłem w wysokiej rozdzielczości (min. 500px szerokości). Tymczasowo podpięte aktualne logo z filtrami CSS (białe na ciemnym tle)
 - [ ] **Konsultacja z klientem** — wstępna prezentacja strony, zebranie uwag, akceptacja: kolorystyki, treści, układu, brakujących sekcji
 - [ ] **PYTANIE DO KLIENTA: Strona /kontakt** — czy jedyną formą kontaktu mają być formularze na podstronach usług + numer telefonu, czy potrzebny jest też formularz ogólny na `/kontakt`? Obecnie formularz z `/kontakt` usunięty, strona pokazuje tylko dane kontaktowe
 - [ ] **PYTANIE DO KLIENTA: Wymagalność pól formularzy** — wszystkie pola ustawione jako wymagane; skonsultować, czy np. e-mail lub numer działki mogą być opcjonalne
@@ -159,12 +157,9 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 
 ### Frontend (do zrobienia w kodzie)
 
-- [x] **Formularze — UI** — formularz studni na `/studnie`, formularz pompy na `/pompy-ciepla`; formularz z `/kontakt` usunięty; CTA w hero podstron i na stronie głównej
 - [ ] **Formularze — wysyłanie** — podpiąć Formspree (lub inny serwis po konsultacji z klientem); oba formularze + endpoint
 - [ ] **Galeria zdjęć** — po otrzymaniu zdjęć: komponent galerii z lightboxem (np. yet-another-react-lightbox); wersja mobilna
-- [x] **Mapa Google** — Google Maps iframe na stronie `/kontakt` (ul. Spacerowa 5, Kielce)
 - [ ] **Cookie banner / polityka prywatności** — wymagane prawnie (RODO); dodać baner cookie + podstronę `/polityka-prywatnosci`
-- [x] **Centralizacja treści** — dane firmy, statystyki, referencje, lokalizacje w `src/data/content.js`; dynamiczne obliczanie lat doświadczenia
 - [ ] **Weryfikacja responsywności** — przetestować layout na urządzeniach mobilnych (szczególnie nawigacja, tabele, karty)
 - [ ] **Testy cross-browser** — Chrome, Firefox, Safari, Edge
 
@@ -200,3 +195,9 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - [x] Mapa Google na stronie kontaktu
 - [x] Centralizacja treści do `src/data/content.js` + naprawa niespójności lat doświadczenia
 - [x] Mapa choropleth województw na `/realizacje` — SVG zamiast Leaflet, legenda z ikonami kropli, tooltip on hover; usunięto leaflet i react-leaflet z zależności
+- [x] Zdjęcia firmy — 18 zdjęć dostarczonych, zoptymalizowanych i umieszczonych na HomePage, StudniePage, PompyPage
+- [x] Nowe formularze (2 szt.) — struktura dostarczona w `docs/`, UI zaimplementowane
+- [x] Formularze — UI — formularz studni na `/studnie`, formularz pompy na `/pompy-ciepla`; CTA w hero podstron i na stronie głównej
+- [x] Mapa Google na stronie `/kontakt` (ul. Spacerowa 5, Kielce)
+- [x] Centralizacja treści do `src/data/content.js` — dane firmy, statystyki, referencje, lokalizacje; dynamiczne obliczanie lat doświadczenia
+- [x] Logotypy firm — zamiana tekstowych referencji/partnerów na graficzne loga (`LogoGrid` komponent, grayscale→kolor hover)
