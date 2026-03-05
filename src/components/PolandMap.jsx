@@ -62,10 +62,14 @@ export function PolandMap({ voivodeships }) {
     }
 
     function handleMouseMove(e) {
-        const rect = e.currentTarget.closest("svg").getBoundingClientRect();
+        const svg = e.currentTarget.closest("svg");
+        const rect = svg.getBoundingClientRect();
+        // Convert screen pixels to SVG viewBox coordinates
+        const scaleX = 612 / rect.width;
+        const scaleY = 577 / rect.height;
         setTooltipPos({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top - 10,
+            x: (e.clientX - rect.left) * scaleX,
+            y: (e.clientY - rect.top) * scaleY - 10,
         });
     }
 
