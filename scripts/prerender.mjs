@@ -69,6 +69,10 @@ async function prerender() {
 }
 
 prerender().catch((err) => {
+  if (process.env.VERCEL || process.env.CI) {
+    console.warn('[prerender] Skipping — Puppeteer not available in this environment');
+    process.exit(0);
+  }
   console.error('[prerender] Error:', err);
   process.exit(1);
 });
