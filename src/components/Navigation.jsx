@@ -41,7 +41,7 @@ export function Navigation() {
                     className="cursor-pointer flex items-center"
                     onClick={() => handleNav("/")}
                 >
-                    <img src={logo} alt={company.name} className="h-12 brightness-0 invert" />
+                    <img src={logo} alt={company.name} className="h-12" />
                 </div>
 
                 {/* Desktop nav */}

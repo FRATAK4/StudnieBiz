@@ -22,7 +22,7 @@ export function Footer() {
                     {/* Col 1 - Brand */}
                     <div>
                         <div className="mb-5">
-                            <img src={logo} alt={company.name} className="h-14 brightness-0 invert" />
+                            <img src={logo} alt={company.name} className="h-14" />
                         </div>
                         <p className="text-white/60 leading-relaxed text-sm">
                             {company.fullName} — ponad {yearsExperience} lat doświadczenia na rynku wiertniczym.
