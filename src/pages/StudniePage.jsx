@@ -45,6 +45,7 @@ export default function StudniePage() {
                                     "Opracowanie projektu robót geologicznych",
                                     "Wiercenie na sprężone powietrze, udarowo-okrętnie lub na płuczkę wiertniczą",
                                     "Opracowanie dokumentacji hydrogeologicznej",
+                                    "Decyzje o środowiskowych uwarunkowaniach przedsięwzięcia",
                                     "Opracowanie operatu wodnoprawnego",
                                     "Uzbrojenie i obudowa studni",
                                     "Pompowania oczyszczające i pomiarowe",

@@ -12,7 +12,7 @@ export function Footer() {
     };
 
     const currentYear = new Date().getFullYear();
-    const yearsExperience = currentYear - stats.foundedYear;
+    const yearsExperience = stats.experienceYears;
 
     return (
         <footer className="bg-navy text-white py-20 px-6 pb-10 relative overflow-hidden">
@@ -25,8 +25,11 @@ export function Footer() {
                             <img src={logo} alt={company.name} className="h-14 brightness-0 invert" />
                         </div>
                         <p className="text-white/60 leading-relaxed text-sm">
-                            {company.fullName} — ponad {yearsExperience} lat doświadczenia na rynku wiertniczym. Jedyna firma w Polsce z certyfikatem DVGW BAU.
+                            {company.fullName} — ponad {yearsExperience} lat doświadczenia na rynku wiertniczym.
                         </p>
+                        <a href={company.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-white/50 hover:text-accent transition-colors duration-200 text-sm">
+                            {Icons.facebook} Facebook
+                        </a>
                     </div>
 
                     {/* Col 2 - Usługi */}
@@ -56,6 +59,7 @@ export function Footer() {
                                 { icon: Icons.mapPin, text: company.address },
                                 { icon: Icons.phone, text: `${company.phone.mobile1} / ${company.phone.landline}` },
                                 { icon: Icons.mail, text: company.email },
+                                { icon: Icons.layers, text: `NIP: ${company.nip} | REGON: ${company.regon}` },
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-2.5 text-white/60 text-sm">
                                     {item.icon} {item.text}

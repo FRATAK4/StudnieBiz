@@ -6,20 +6,21 @@ import { ImgPlaceholder } from "../components/ImgPlaceholder.jsx";
 import { LogoGrid } from "../components/LogoGrid.jsx";
 import { PageHero } from "../components/PageHero.jsx";
 import { company, stats, partnerships } from "../data/content.js";
+import certyfikatDvgw from "../assets/images/ogolne/certyfikat-dvgw.png";
 
 export default function ONasPage() {
     return (
         <div>
             <Helmet>
                 <title>{`O nas — ${company.name} od ${stats.foundedYear} | studnie.biz`}</title>
-                <meta name="description" content={`${company.fullName} — ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z niemieckim certyfikatem DVGW BAU W 120-1 i W 120-2.`} />
+                <meta name="description" content={`${company.fullName} — ponad ${stats.experienceYears} lat tradycji wiertniczej. Pierwsza firma wiertnicza w Polsce z niemieckim certyfikatem DVGW BAU W 120-1 i W 120-2.`} />
                 <meta property="og:title" content={`O nas — ${company.name} od ${stats.foundedYear} | studnie.biz`} />
-                <meta property="og:description" content={`Ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej. Jedyna firma w Polsce z certyfikatem DVGW BAU. Współpraca z ${partnerships.map(p => p.name).join(", ")}.`} />
+                <meta property="og:description" content={`Ponad ${stats.experienceYears} lat tradycji wiertniczej. Pierwsza firma wiertnicza w Polsce z certyfikatem DVGW BAU. Współpraca z ${partnerships.map(p => p.name).join(", ")}.`} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/o-nas" />
                 <link rel="canonical" href="https://studnie.biz/o-nas" />
             </Helmet>
-            <PageHero title="O nas" subtitle={`${company.fullName} — ponad ${new Date().getFullYear() - stats.foundedYear} lat tradycji wiertniczej, nowoczesne technologie i niemiecki certyfikat DVGW BAU.`} icon={Icons.users} />
+            <PageHero title="O nas" subtitle={`${company.fullName} — ponad ${stats.experienceYears} lat tradycji wiertniczej, nowoczesne technologie i niemiecki certyfikat DVGW BAU.`} icon={Icons.users} />
 
             <section className="py-20 px-6 bg-white">
                 <div className="max-w-[1100px] mx-auto">
@@ -52,13 +53,13 @@ export default function ONasPage() {
                     <AnimatedSection>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-15 items-center">
                             <div>
-                                <ImgPlaceholder label="Certyfikat DVGW BAU W 120-1 / W 120-2" height={350} style={{ borderRadius: 16 }} />
+                                <img src={certyfikatDvgw} alt="Certyfikat DVGW BAU W 120-1 Brunnenbau / W 120-2 Geothermie" className="rounded-2xl w-full max-w-[400px] mx-auto" />
                             </div>
                             <div>
                                 <div className="section-tag">Certyfikat</div>
-                                <h2 className="section-title !text-[32px]">Jedyna firma w Polsce z certyfikatem DVGW BAU</h2>
+                                <h2 className="section-title !text-[32px]">Pierwsza firma w Polsce z certyfikatem DVGW BAU</h2>
                                 <p className="text-gray-500 leading-relaxed text-base mb-6">
-                                    Jako jedyna i pierwsza firma wiertnicza w Polsce posiadamy niemiecki certyfikat BAU.
+                                    Jako pierwsza firma wiertnicza w Polsce uzyskaliśmy niemiecki certyfikat BAU.
                                     Certyfikaty W 120-1 (Brunnenbau — budowa studni) i W 120-2 (Geothermie — geotermia) otrzymują wyłącznie firmy spełniające rygorystyczne wymogi formalne, personalne i rzeczowe.
                                 </p>
                                 <CheckList items={[

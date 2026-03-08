@@ -14,9 +14,9 @@ export default function PompyPage() {
         <div>
             <Helmet>
                 <title>Pompy ciepła — odwierty pod gruntowe wymienniki | studnie.biz</title>
-                <meta name="description" content="Odwierty pod gruntowe pompy ciepła klasy A+++. Współpraca ze STIEBEL ELTRON i AGH. Certyfikat DVGW BAU W 120-2. Członek PORT PC." />
+                <meta name="description" content="Odwierty pod gruntowe pompy ciepła klasy A+++. Współpraca z AGH. Certyfikat DVGW BAU W 120-2. Członek PORT PC." />
                 <meta property="og:title" content="Pompy ciepła — odwierty pod gruntowe wymienniki | studnie.biz" />
-                <meta property="og:description" content="Odwierty pod gruntowe pompy ciepła klasy A+++. Współpraca ze STIEBEL ELTRON i AGH. Certyfikat DVGW BAU W 120-2." />
+                <meta property="og:description" content="Odwierty pod gruntowe pompy ciepła klasy A+++. Współpraca z AGH. Certyfikat DVGW BAU W 120-2." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://studnie.biz/pompy-ciepla" />
                 <link rel="canonical" href="https://studnie.biz/pompy-ciepla" />

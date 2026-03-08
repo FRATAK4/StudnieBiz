@@ -8,7 +8,6 @@ import sokpolLogo from "../assets/images/loga/sokpol.png";
 import hortexLogo from "../assets/images/loga/hortex.png";
 import industriaLogo from "../assets/images/loga/industria.png";
 import aspolLogo from "../assets/images/loga/aspol.png";
-import stiebelEltronLogo from "../assets/images/loga/stiebel_eltron.png";
 import portPcLogo from "../assets/images/loga/port_pc.png";
 import aghLogo from "../assets/images/loga/agh.png";
 
@@ -24,12 +23,17 @@ export const company = {
         landline: "(41) 361 55 15",
     },
     email: "studnie1@gmail.com",
+    formEmail: "odwiertyzlecenia@gmail.com",
     website: "www.studnie.biz",
+    nip: "9592052862",
+    regon: "522284045",
+    facebook: "https://www.facebook.com/profile.php?id=100063674165049",
     coordinates: { lat: 50.8661, lng: 20.6286 },
 };
 
 export const stats = {
     foundedYear: 1968,
+    experienceYears: 60,
     boreholes: 35000,
     warrantyYears: 10,
 };
@@ -40,7 +44,6 @@ export const certifications = {
 
 export const partnerships = [
     { name: "PORT PC", logo: portPcLogo },
-    { name: "STIEBEL ELTRON", logo: stiebelEltronLogo },
     { name: "AGH Kraków", logo: aghLogo },
 ];
 
@@ -93,20 +96,20 @@ export const locations = [
 export const voivodeships = {
     "zachodniopomorskie":     { name: "Zachodniopomorskie",     range: "1–10" },
     "pomorskie":             { name: "Pomorskie",              range: "1–10" },
-    "warmińsko-mazurskie":   { name: "Warmińsko-mazurskie",    range: "11–30" },
-    "podlaskie":             { name: "Podlaskie",              range: "11–30" },
+    "warmińsko-mazurskie":   { name: "Warmińsko-mazurskie",    range: "1–10" },
+    "podlaskie":             { name: "Podlaskie",              range: "1–10" },
     "lubuskie":              { name: "Lubuskie",               range: "1–10" },
     "wielkopolskie":         { name: "Wielkopolskie",           range: "1–10" },
-    "kujawsko-pomorskie":    { name: "Kujawsko-pomorskie",     range: "1–10" },
+    "kujawsko-pomorskie":    { name: "Kujawsko-pomorskie",     range: "11–30" },
     "mazowieckie":           { name: "Mazowieckie",            range: "101–500" },
-    "łódzkie":               { name: "Łódzkie",                range: "101–500" },
+    "łódzkie":               { name: "Łódzkie",                range: "31–50" },
     "dolnośląskie":          { name: "Dolnośląskie",           range: "11–30" },
-    "opolskie":              { name: "Opolskie",               range: "51–100" },
-    "śląskie":               { name: "Śląskie",                range: "31–50" },
+    "opolskie":              { name: "Opolskie",               range: "31–50" },
+    "śląskie":               { name: "Śląskie",                range: "51–100" },
     "małopolskie":           { name: "Małopolskie",            range: "51–100" },
     "świętokrzyskie":        { name: "Świętokrzyskie",         range: "powyżej 1000" },
-    "podkarpackie":          { name: "Podkarpackie",           range: "31–50" },
-    "lubelskie":             { name: "Lubelskie",              range: "51–100" },
+    "podkarpackie":          { name: "Podkarpackie",           range: "11–30" },
+    "lubelskie":             { name: "Lubelskie",              range: "31–50" },
 };
 
 // Realizacje odwiertów pod pompy ciepła (PompyPage)

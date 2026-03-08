@@ -11,7 +11,7 @@ import zespolWiertnica from "../assets/images/ogolne/zespol-przy-wiertnicy.jpg";
 
 export default function HomePage() {
     const navigate = useNavigate();
-    const yearsExperience = new Date().getFullYear() - stats.foundedYear;
+    const yearsExperience = stats.experienceYears;
 
     const go = (path) => {
         navigate(path);
@@ -29,7 +29,7 @@ export default function HomePage() {
         <div>
             <Helmet>
                 <title>{`Studnie głębinowe i pompy ciepła — wiercenie od ${stats.foundedYear} | studnie.biz`}</title>
-                <meta name="description" content={`${company.name} — wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Jedyna firma w Polsce z certyfikatem DVGW BAU. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów.`} />
+                <meta name="description" content={`${company.name} — wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Pierwsza firma wiertnicza w Polsce z certyfikatem DVGW BAU. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów.`} />
                 <meta property="og:title" content={`Studnie głębinowe i pompy ciepła — wiercenie od ${stats.foundedYear} | studnie.biz`} />
                 <meta property="og:description" content={`Wiercenie studni głębinowych, odwierty pod pompy ciepła, piezometry. Ponad ${stats.boreholes.toLocaleString("pl-PL")} odwiertów od ${stats.foundedYear} roku. Certyfikat DVGW BAU.`} />
                 <meta property="og:type" content="website" />
@@ -62,7 +62,7 @@ export default function HomePage() {
                             </h1>
 
                             <p className="animate-in animate-delay-3 text-lg text-white/65 leading-relaxed max-w-[500px] mb-9">
-                                Jedyna firma wiertnicza w Polsce z niemieckim certyfikatem DVGW BAU.
+                                Pierwsza firma wiertnicza w Polsce z niemieckim certyfikatem DVGW BAU.
                                 Kompleksowa obsługa — od projektu, przez wiercenie, po dokumentację.
                             </p>
 
@@ -131,7 +131,7 @@ export default function HomePage() {
                             <ServiceCard
                                 icon={Icons.flame}
                                 title="Pompy ciepła"
-                                description="Odwierty pod gruntowe wymienniki ciepła. Klasa energetyczna A+++. Współpraca z STIEBEL ELTRON."
+                                description="Odwierty pod gruntowe wymienniki ciepła. Klasa energetyczna A+++."
                                 onClick={() => go("/pompy-ciepla")}
                             />
                         </AnimatedSection>
@@ -180,13 +180,13 @@ export default function HomePage() {
                         </AnimatedSection>
                         <AnimatedSection>
                             <div className="section-tag">Dlaczego my?</div>
-                            <h2 className="section-title">Ponad pół wieku doświadczenia w branży wiertniczej</h2>
+                            <h2 className="section-title">Ponad 60 lat doświadczenia w branży wiertniczej</h2>
                             <p className="text-gray-500 leading-relaxed text-base mb-9">
-                                {company.name} działa nieprzerwanie od {stats.foundedYear} roku.
-                                Jako jedyna firma wiertnicza w Polsce posiadamy niemiecki certyfikat DVGW BAU.
+                                {company.fullName} działa nieprzerwanie od {stats.foundedYear} roku.
+                                Jako pierwsza firma wiertnicza w Polsce uzyskała niemiecki certyfikat DVGW BAU.
                             </p>
                             <FeatureItem icon={Icons.layers} title="Kompleksowość" description="Od projektu geologicznego, przez wiercenie, po dokumentację powykonawczą. Darmowa wizja lokalna." />
-                            <FeatureItem icon={Icons.award} title="Certyfikat DVGW BAU" description="Certyfikaty W 120-1 (Brunnenbau — budowa studni) i W 120-2 (Geothermie — geotermia). Jedyna taka firma w Polsce." />
+                            <FeatureItem icon={Icons.award} title="Certyfikat DVGW BAU" description="Certyfikaty W 120-1 (Brunnenbau — budowa studni) i W 120-2 (Geothermie — geotermia). Pierwsza taka firma w Polsce." />
                             <FeatureItem icon={Icons.users} title="Doświadczony zespół" description="Wykwalifikowani pracownicy z wieloletnim stażem. Współpraca z AGH i PORT PC." />
                         </AnimatedSection>
                     </div>
