@@ -123,14 +123,17 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - **Telefon komórkowy**: 602 333 745, 602 333 992
 - **Telefon stacjonarny**: (41) 361 55 15
 - **Email**: studnie1@gmail.com
+- **Email formularzy**: odwiertyzlecenia@gmail.com
 - **WWW**: www.studnie.biz
-- **Facebook**: Zakład Usług Studziennych
+- **NIP**: 9592052862
+- **REGON**: 522284045
+- **Facebook**: https://www.facebook.com/profile.php?id=100063674165049
 - **Rok założenia**: 1968
+- **Lata doświadczenia**: ponad 60 (hardcoded, nie dynamiczne)
 - **Wykonane otwory**: ponad 35 000
 - **Gwarancja na studnię**: 10 lat
-- **Certyfikaty**: DVGW BAU W 120-1 (Brunnenbau), W 120-2 (Geothermie)
+- **Certyfikaty**: DVGW BAU W 120-1 (Brunnenbau), W 120-2 (Geothermie) — **pierwsza** (nie "jedyna") firma w Polsce
 - **Członkostwo**: PORT PC (Polska Organizacja Rozwoju Pomp Ciepła)
-- **Partner**: STIEBEL ELTRON (pompy ciepła)
 - **Współpraca**: AGH Kraków (testy TRT)
 - **Referencje klientów**: Zbyszko, Życkowiacz, Jamar, Sokpol, Hortex, INDUSTRIA, Andrzej Stępień LASPOL MAX
 - **Geo**: 50.8661, 20.6286 (Kielce — używane w JSON-LD)
@@ -147,17 +150,15 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 
 ### Od klienta (czekamy na materiały)
 
-- [ ] **PYTANIE DO KLIENTA: Logo firmy w lepszej jakości** — obecne logo (`docs/loga/studnie_biz.png`, 225×225px) ma niską rozdzielczość; poprosić klienta o logo w formacie SVG lub PNG z przezroczystym tłem w wysokiej rozdzielczości (min. 500px szerokości). Tymczasowo podpięte aktualne logo z filtrami CSS (białe na ciemnym tle)
-- [ ] **Konsultacja z klientem** — wstępna prezentacja strony, zebranie uwag, akceptacja: kolorystyki, treści, układu, brakujących sekcji
-- [ ] **PYTANIE DO KLIENTA: Strona /kontakt** — czy jedyną formą kontaktu mają być formularze na podstronach usług + numer telefonu, czy potrzebny jest też formularz ogólny na `/kontakt`? Obecnie formularz z `/kontakt` usunięty, strona pokazuje tylko dane kontaktowe
+- [ ] **Sekcja O nas — historia firmy** — klient przygotowuje materiały z artykułów z 1984 r. o historii założenia firmy
+- [ ] **Zdjęcie właścicieli** — brak wspólnego zdjęcia Bernarda i Mariana Wójcik; klient zrobi przy najbliższej okazji (placeholder `ImgPlaceholder` na ONasPage)
+- [ ] **Zgoda na logotypy firm** — klient w trakcie uzyskiwania zgód na wykorzystanie logotypów na stronie (Zbyszko, Hortex, Sokpol, Jamar, Życkowiacz, INDUSTRIA, LASPOL MAX)
+- [ ] **PYTANIE DO KLIENTA: Certyfikat DVGW na stronie O nas** — obecnie wyświetlane jest logo/badge certyfikatu; spytać czy wystarczy, czy klient wolałby dodać też pełny dokument certyfikatu do pobrania (PDF dostępny w `docs/certyfikat/`)
 - [ ] **PYTANIE DO KLIENTA: Wymagalność pól formularzy** — wszystkie pola ustawione jako wymagane; skonsultować, czy np. e-mail lub numer działki mogą być opcjonalne
-- [ ] **PYTANIE DO KLIENTA: Wysyłanie formularzy** — wybrać sposób dostarczania zgłoszeń (rekomendacja: Formspree — darmowy, bez backendu, maile na studnie1@gmail.com); klient musi podać docelowy adres e-mail na zgłoszenia
-- [ ] **PYTANIE DO KLIENTA: Liczby realizacji per województwo** — mapa choropleth na `/realizacje` używa oszacowanych przedziałów z grafiki `docs/realizacje.png`; skonsultować aktualne dane z klientem
-- [ ] **PYTANIE DO KLIENTA: Zgoda na logotypy firm** — na stronie używane są loga klientów (Zbyszko, Hortex, Sokpol, Jamar, Życkowiacz, INDUSTRIA, LASPOL MAX) i partnerów (STIEBEL ELTRON, PORT PC, AGH Kraków); skonsultować, czy klient posiada pisemne zgody na upublicznianie logotypów tych firm w sekcjach referencji i współpracy
 
 ### Frontend (do zrobienia w kodzie)
 
-- [ ] **Formularze — wysyłanie** — podpiąć Formspree (lub inny serwis po konsultacji z klientem); oba formularze + endpoint
+- [ ] **Formularze — wysyłanie** — podpiąć Formspree (lub inny serwis); endpoint na `odwiertyzlecenia@gmail.com`; oba formularze (studnia + pompa)
 - [ ] **Galeria zdjęć** — po otrzymaniu zdjęć: komponent galerii z lightboxem (np. yet-another-react-lightbox); wersja mobilna
 - [ ] **Cookie banner / polityka prywatności** — wymagane prawnie (RODO); dodać baner cookie + podstronę `/polityka-prywatnosci`
 - [ ] **Weryfikacja responsywności** — przetestować layout na urządzeniach mobilnych (szczególnie nawigacja, tabele, karty)
@@ -175,7 +176,6 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 ### Opcjonalne / przyszłościowe
 
 - [ ] **Kolorystyka** — ostateczne zatwierdzenie przez klienta (paleta może ulec zmianie)
-- [ ] **Linki social media** — stopka ma placeholder dla Facebooka; dodać prawdziwy link do profilu
 - [ ] **TypeScript** — opcjonalna migracja dla lepszej utrzymywalności
 - [ ] **Testy wydajności** — Lighthouse / Core Web Vitals po wdrożeniu
 
@@ -201,3 +201,17 @@ Kolorystyka nawiązuje do wody i marki studnie.biz. **Nie jest jeszcze zatwierdz
 - [x] Mapa Google na stronie `/kontakt` (ul. Spacerowa 5, Kielce)
 - [x] Centralizacja treści do `src/data/content.js` — dane firmy, statystyki, referencje, lokalizacje; dynamiczne obliczanie lat doświadczenia
 - [x] Logotypy firm — zamiana tekstowych referencji/partnerów na graficzne loga (`LogoGrid` komponent, grayscale→kolor hover)
+- [x] **Feedback klienta (runda 1):**
+  - [x] Logo firmy — high-res PNG z przezroczystym tłem, oryginalne kolory (granat→biały na ciemnym tle, niebieski zachowany)
+  - [x] Favicon — sygnet logo jako PNG (512×512 + apple-touch-icon 180×180)
+  - [x] "Ponad 60 lat" — zamiana dynamicznego obliczania na hardcoded `experienceYears: 60`
+  - [x] NIP (9592052862) i REGON (522284045) — w stopce i na stronie kontaktu
+  - [x] "Jedyna" → "pierwsza" firma w Polsce — wszędzie (HomePage, Footer, ONasPage, index.html, meta tagi)
+  - [x] Usunięto STIEBEL ELTRON — z partnerships, kart usług na HomePage, meta tagów PompyPage
+  - [x] Tekst "Dlaczego my" — pełna nazwa firmy + "pierwsza" zamiast "jedyna"
+  - [x] Stopka — usunięta wzmianka o certyfikacie DVGW BAU
+  - [x] StudniePage — dodano "Decyzje o środowiskowych uwarunkowaniach przedsięwzięcia"
+  - [x] Facebook — link do profilu w stopce, content.js i JSON-LD
+  - [x] Email formularzy — `odwiertyzlecenia@gmail.com` w content.js
+  - [x] Mapa realizacji — poprawione dane województw wg adnotacji klienta na `docs/realizacje.png`
+  - [x] Certyfikat DVGW — obraz logo certyfikatu na stronie O nas (zastąpiony ImgPlaceholder)
